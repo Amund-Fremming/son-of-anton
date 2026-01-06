@@ -1,0 +1,54 @@
+1767722217: mosquitto version 2.0.22 starting
+1767722217: Config loaded from /mosquitto/config/mosquitto.conf.
+1767722217: Opening ipv4 listen socket on port 1883.
+1767722217: Opening ipv6 listen socket on port 1883.
+1767722217: mosquitto version 2.0.22 running
+1767722373: mosquitto version 2.0.22 terminating
+1767722373: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1767722373: mosquitto version 2.0.22 starting
+1767722373: Config loaded from /mosquitto/config/mosquitto.conf.
+1767722373: Opening ipv4 listen socket on port 1883.
+1767722373: Opening ipv6 listen socket on port 1883.
+1767722373: mosquitto version 2.0.22 running
+1767722629: mosquitto version 2.0.22 terminating
+1767722629: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1767722629: mosquitto version 2.0.22 starting
+1767722629: Config loaded from /mosquitto/config/mosquitto.conf.
+1767722629: Opening ipv4 listen socket on port 1883.
+1767722629: Opening ipv6 listen socket on port 1883.
+1767722629: mosquitto version 2.0.22 running
+1767725523: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1767727617: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1767727951: mosquitto version 2.0.22 terminating
+1767727951: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1767727961: mosquitto version 2.0.22 starting
+1767727961: Config loaded from /mosquitto/config/mosquitto.conf.
+1767727961: Opening ipv4 listen socket on port 1883.
+1767727961: Opening ipv6 listen socket on port 1883.
+1767727961: mosquitto version 2.0.22 running
+1767728775: New connection from 192.168.147.1:35110 on port 1883.
+1767728775: New client connected from 192.168.147.1:35110 as mqttjs_38657f3d (p2, c1, k60).
+1767729699: Client mqttjs_38657f3d disconnected.
+1767729762: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1767729791: New connection from 192.168.147.1:56408 on port 1883.
+1767729791: New client connected from 192.168.147.1:56408 as mqttjs_65d218ad (p2, c1, k60).
+1767732491: New connection from 192.168.147.1:36232 on port 1883.
+1767732491: New client connected from 192.168.147.1:36232 as son-of-anton (p2, c1, k5).
+1767732494: Client son-of-anton closed its connection.
+1767732573: New connection from 192.168.147.1:57490 on port 1883.
+1767732573: New client connected from 192.168.147.1:57490 as son-of-anton (p2, c1, k5).
+1767732576: Client son-of-anton closed its connection.
+1767732639: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1767732784: New connection from 192.168.147.1:40262 on port 1883.
+1767732784: New client connected from 192.168.147.1:40262 as son-of-anton (p2, c1, k5).
+1767732787: Client son-of-anton closed its connection.
+1767732823: New connection from 192.168.147.1:50028 on port 1883.
+1767732823: New client connected from 192.168.147.1:50028 as son-of-anton (p2, c1, k5).
+1767732826: Client son-of-anton closed its connection.
+1767732866: New connection from 192.168.147.1:48690 on port 1883.
+1767732866: New client connected from 192.168.147.1:48690 as son-of-anton (p2, c1, k5).
+1767732869: Client son-of-anton disconnected: Broken pipe.
+1767732904: New connection from 192.168.147.1:44916 on port 1883.
+1767732904: New client connected from 192.168.147.1:44916 as son-of-anton (p2, c1, k5).
+1767732907: Client son-of-anton closed its connection.
+1767734109: Client mqttjs_65d218ad disconnected.
