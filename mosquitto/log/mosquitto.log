@@ -52,3 +52,5 @@
 1767732904: New client connected from 192.168.147.1:44916 as son-of-anton (p2, c1, k5).
 1767732907: Client son-of-anton closed its connection.
 1767734109: Client mqttjs_65d218ad disconnected.
+1767734131: mosquitto version 2.0.22 terminating
+1767734131: Saving in-memory database to /mosquitto/data//mosquitto.db.
