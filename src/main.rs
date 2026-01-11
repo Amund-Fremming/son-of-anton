@@ -1,12 +1,8 @@
 use rumqttc::{AsyncClient, MqttOptions, QoS};
-use serde::Serialize;
 use std::time::Duration;
 
-#[derive(Serialize)]
-struct LightPayload {
-    state: String,
-    brightness: u8,
-}
+mod tools;
+use tools::{LightPayload, LightState};
 
 pub struct ZigbeeController {
     client: AsyncClient,
@@ -35,10 +31,7 @@ impl ZigbeeController {
     /// Turn a light on
     pub async fn light_on(&self, device_name: &str) -> Result<(), rumqttc::ClientError> {
         let topic = format!("zigbee2mqtt/{}/set", device_name);
-        let payload = serde_json::to_string(&LightState {
-            state: "ON".to_string(),
-        })
-        .unwrap();
+        let payload = serde_json::to_string(&LightPayload::on()).unwrap();
 
         self.client
             .publish(&topic, QoS::AtLeastOnce, false, payload)
@@ -48,10 +41,7 @@ impl ZigbeeController {
     /// Turn a light off
     pub async fn light_off(&self, device_name: &str) -> Result<(), rumqttc::ClientError> {
         let topic = format!("zigbee2mqtt/{}/set", device_name);
-        let payload = serde_json::to_string(&LightState {
-            state: "OFF".to_string(),
-        })
-        .unwrap();
+        let payload = serde_json::to_string(&LightPayload::off()).unwrap();
 
         self.client
             .publish(&topic, QoS::AtLeastOnce, false, payload)
@@ -65,11 +55,7 @@ impl ZigbeeController {
         brightness: u8,
     ) -> Result<(), rumqttc::ClientError> {
         let topic = format!("zigbee2mqtt/{}/set", device_name);
-        let payload = serde_json::to_string(&LightPayload {
-            state: "ON".to_string(),
-            brightness,
-        })
-        .unwrap();
+        let payload = serde_json::to_string(&LightPayload::with_brightness(brightness)).unwrap();
 
         self.client
             .publish(&topic, QoS::AtLeastOnce, false, payload)
@@ -79,18 +65,13 @@ impl ZigbeeController {
     /// Toggle a light
     pub async fn toggle(&self, device_name: &str) -> Result<(), rumqttc::ClientError> {
         let topic = format!("zigbee2mqtt/{}/set", device_name);
-        let payload = serde_json::to_string(&LightState {
-            state: "TOGGLE".to_string(),
-        })
-        .unwrap();
+        let payload = r#"{"state":"TOGGLE"}"#;
 
         self.client
             .publish(&topic, QoS::AtLeastOnce, false, payload)
             .await
     }
 }
-
-mod tools;
 
 #[tokio::main]
 async fn main() {

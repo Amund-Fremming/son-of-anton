@@ -54,3 +54,8 @@
 1767734109: Client mqttjs_65d218ad disconnected.
 1767734131: mosquitto version 2.0.22 terminating
 1767734131: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768150994: mosquitto version 2.0.22 starting
+1768150994: Config loaded from /mosquitto/config/mosquitto.conf.
+1768150994: Opening ipv4 listen socket on port 1883.
+1768150994: Opening ipv6 listen socket on port 1883.
+1768150994: mosquitto version 2.0.22 running
