@@ -1,7 +1,7 @@
 version: 4
 mqtt:
   base_topic: zigbee2mqtt
-server: mqtt://localhost:1883
+  server: mqtt://localhost:1883
 serial:
   port: /dev/tty.usbmodem1CDBD45F1ED41
   adapter: ember
@@ -10,9 +10,33 @@ serial:
 advanced:
   log_level: debug
   channel: 11
-  network_key: GENERATE
-  pan_id: GENERATE
-  ext_pan_id: GENERATE
+  network_key:
+    - 142
+    - 18
+    - 189
+    - 37
+    - 210
+    - 33
+    - 113
+    - 1
+    - 74
+    - 140
+    - 134
+    - 89
+    - 195
+    - 132
+    - 65
+    - 223
+  pan_id: 38674
+  ext_pan_id:
+    - 43
+    - 109
+    - 34
+    - 41
+    - 55
+    - 81
+    - 141
+    - 237
 frontend:
   enabled: true
   port: 8080

@@ -1,3 +1,3 @@
-mod lights;
+mod zigbee;
 
-pub use lights::{LightPayload, LightState};
+pub use zigbee::*;

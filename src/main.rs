@@ -96,16 +96,18 @@ async fn main() {
 
     for light_name in &all_lights {
         // Turn light on
-        println!("Turning light on...");
+        println!("Turning light off: {}", light_name);
         controller.light_off(light_name).await.unwrap();
+        tokio::time::sleep(Duration::from_millis(100)).await; // Small delay to avoid overwhelming adapter
     }
 
     println!("Sleeping");
     tokio::time::sleep(Duration::from_secs(3)).await;
 
     for light_name in &all_lights {
-        println!("Turning light off...");
+        println!("Turning light on: {}", light_name);
         controller.light_on(light_name).await.unwrap();
+        tokio::time::sleep(Duration::from_millis(100)).await;
     }
     println!("Done!");
 }

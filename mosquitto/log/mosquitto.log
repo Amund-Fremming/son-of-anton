@@ -59,3 +59,52 @@
 1768150994: Opening ipv4 listen socket on port 1883.
 1768150994: Opening ipv6 listen socket on port 1883.
 1768150994: mosquitto version 2.0.22 running
+1768151797: mosquitto version 2.0.22 starting
+1768151797: Config loaded from /mosquitto/config/mosquitto.conf.
+1768151797: Opening ipv4 listen socket on port 1883.
+1768151797: Opening ipv6 listen socket on port 1883.
+1768151797: mosquitto version 2.0.22 running
+1768151922: mosquitto version 2.0.22 starting
+1768151922: Config loaded from /mosquitto/config/mosquitto.conf.
+1768151922: Opening ipv4 listen socket on port 1883.
+1768151922: Opening ipv6 listen socket on port 1883.
+1768151922: mosquitto version 2.0.22 running
+1768151939: New connection from 192.168.147.1:38918 on port 1883.
+1768151939: New client connected from 192.168.147.1:38918 as mqttjs_3afc8b93 (p2, c1, k60).
+1768151950: New connection from 192.168.147.1:59202 on port 1883.
+1768151950: New client connected from 192.168.147.1:59202 as son-of-anton (p2, c1, k5).
+1768151953: Client son-of-anton closed its connection.
+1768152101: Client mqttjs_3afc8b93 disconnected.
+1768152106: New connection from 192.168.147.1:44320 on port 1883.
+1768152106: New client connected from 192.168.147.1:44320 as mqttjs_c6b101cb (p2, c1, k60).
+1768152153: New connection from 192.168.147.1:55316 on port 1883.
+1768152153: New client connected from 192.168.147.1:55316 as son-of-anton (p2, c1, k5).
+1768152156: Client son-of-anton closed its connection.
+1768152162: New connection from 192.168.147.1:34220 on port 1883.
+1768152162: New client connected from 192.168.147.1:34220 as son-of-anton (p2, c1, k5).
+1768152165: Client son-of-anton closed its connection.
+1768152168: Client mqttjs_c6b101cb disconnected.
+1768152202: New connection from 192.168.147.1:33606 on port 1883.
+1768152202: New client connected from 192.168.147.1:33606 as mqttjs_96e0f127 (p2, c1, k60).
+1768152577: New connection from 192.168.147.1:37406 on port 1883.
+1768152577: New client connected from 192.168.147.1:37406 as son-of-anton (p2, c1, k5).
+1768152580: Client son-of-anton disconnected: Broken pipe.
+1768152591: Client mqttjs_96e0f127 disconnected.
+1768152606: New connection from 192.168.147.1:53464 on port 1883.
+1768152606: New client connected from 192.168.147.1:53464 as son-of-anton (p2, c1, k5).
+1768152615: Client son-of-anton closed its connection.
+1768152641: New connection from 192.168.147.1:41704 on port 1883.
+1768152641: New client connected from 192.168.147.1:41704 as mqttjs_69a5ff42 (p2, c1, k60).
+1768152661: New connection from 192.168.147.1:34312 on port 1883.
+1768152661: New client connected from 192.168.147.1:34312 as son-of-anton (p2, c1, k5).
+1768152674: Client son-of-anton closed its connection.
+1768152693: New connection from 192.168.147.1:38658 on port 1883.
+1768152693: New client connected from 192.168.147.1:38658 as son-of-anton (p2, c1, k5).
+1768152706: Client son-of-anton closed its connection.
+1768152742: New connection from 192.168.147.1:57798 on port 1883.
+1768152742: New client connected from 192.168.147.1:57798 as son-of-anton (p2, c1, k5).
+1768152748: Client son-of-anton closed its connection.
+1768153775: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768153844: Client mqttjs_69a5ff42 disconnected.
+1768154572: New connection from 192.168.147.1:38050 on port 1883.
+1768154572: New client connected from 192.168.147.1:38050 as mqttjs_d4995bc4 (p2, c1, k60).
