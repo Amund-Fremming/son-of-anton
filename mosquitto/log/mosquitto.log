@@ -110,3 +110,13 @@
 1768154572: New client connected from 192.168.147.1:38050 as mqttjs_d4995bc4 (p2, c1, k60).
 1768155141: Client mqttjs_d4995bc4 disconnected.
 1768200849: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768200947: mosquitto version 2.0.22 terminating
+1768200947: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768230051: mosquitto version 2.0.22 starting
+1768230051: Config loaded from /mosquitto/config/mosquitto.conf.
+1768230051: Opening ipv4 listen socket on port 1883.
+1768230051: Opening ipv6 listen socket on port 1883.
+1768230051: mosquitto version 2.0.22 running
+1768231852: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768245678: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768249306: Saving in-memory database to /mosquitto/data//mosquitto.db.

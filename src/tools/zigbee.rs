@@ -104,7 +104,6 @@ impl LightPayload {
 }
 
 pub struct ZigbeeController {
-    topic: String,
     client: AsyncClient,
     living_room: Vec<DeviceName>,
     kitchen: Vec<DeviceName>,
@@ -112,7 +111,7 @@ pub struct ZigbeeController {
 }
 
 impl ZigbeeController {
-    pub async fn new(broker_host: &str, broker_port: u16, topic: &str) -> Self {
+    pub async fn new(broker_host: &str, broker_port: u16) -> Self {
         let mut mqttoptions = MqttOptions::new("son-of-anton", broker_host, broker_port);
         mqttoptions.set_keep_alive(Duration::from_secs(5));
 
@@ -151,7 +150,6 @@ impl ZigbeeController {
         ];
 
         Self {
-            topic: topic.to_string(),
             client,
             living_room,
             kitchen,
@@ -159,20 +157,73 @@ impl ZigbeeController {
         }
     }
 
-    pub async fn turn_off(&self, device_name: DeviceName) -> Result<(), ClientError> {
+    async fn send_payload(
+        &self,
+        device_name: &DeviceName,
+        payload: &LightPayload,
+    ) -> Result<(), ClientError> {
         let topic = format!("zigbee2mqtt/{}/set", device_name.as_str());
-        let payload = serde_json::to_string(&LightPayload::off()).unwrap();
+        let payload = serde_json::to_string(payload).unwrap();
 
         self.client
             .publish(&topic, QoS::AtLeastOnce, false, payload)
             .await
     }
 
-    pub fn turn_all_on(&self) {
-        for device in self.bedroom {
-            //
-        }
+    pub async fn turn_off(&self, device: DeviceName) -> Result<(), ClientError> {
+        self.send_payload(&device, &LightPayload::off()).await?;
+        Ok(())
     }
 
-    pub fn turn_all_off(&self) {}
+    pub async fn turn_on(&self, device: DeviceName) -> Result<(), ClientError> {
+        self.send_payload(&device, &LightPayload::on()).await?;
+        Ok(())
+    }
+
+    pub async fn turn_all_off(&self) -> Result<(), ClientError> {
+        for device in &self.bedroom {
+            self.turn_off(*device).await?;
+        }
+
+        for device in &self.kitchen {
+            self.turn_off(*device).await?;
+        }
+
+        for device in &self.living_room {
+            self.turn_off(*device).await?;
+        }
+
+        Ok(())
+    }
+
+    pub async fn turn_all_on(&self) -> Result<(), ClientError> {
+        for device in &self.bedroom {
+            self.turn_on(*device).await?;
+        }
+
+        for device in &self.kitchen {
+            self.turn_on(*device).await?;
+        }
+
+        for device in &self.living_room {
+            self.turn_on(*device).await?;
+        }
+
+        Ok(())
+    }
+
+    pub async fn night_mode(&self) -> Result<(), ClientError> {
+        todo!();
+    }
+
+    pub async fn movie_mode(&self) -> Result<(), ClientError> {
+        todo!();
+    }
+}
+
+#[cfg(test)]
+mod tests {
+
+    #[tokio::test]
+    async fn dummy() {}
 }
