@@ -5,12 +5,12 @@ use dotenvy::dotenv;
 use crate::tools::{transit::TransitClient, weather::WeatherClient, zigbee::ZigbeeController};
 
 mod app_error;
+mod audio;
 mod logger;
 mod mcp;
 mod orchestrator;
 mod tools;
 mod util;
-mod voice;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {

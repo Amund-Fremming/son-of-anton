@@ -2,8 +2,9 @@ use std::time::Duration;
 
 use rumqttc::{AsyncClient, ClientError, MqttOptions, QoS};
 use serde::{Deserialize, Serialize};
+use strum::{EnumIter, IntoEnumIterator};
 
-#[derive(Serialize, Deserialize, Debug, Clone, Copy)]
+#[derive(Serialize, Deserialize, Debug, Clone, EnumIter)]
 pub enum DeviceName {
     #[serde(rename = "hue_kitchen_1")]
     HueKitchen1,
@@ -31,6 +32,14 @@ pub enum DeviceName {
     HueLivingroom6,
     #[serde(rename = "ikea_mushroom")]
     IkeaMushroom,
+    #[serde(rename = "ikea_donut")]
+    IkeaDonut,
+    #[serde(rename = "light_bulb")]
+    LightBulb,
+    #[serde(rename = "sofa_light")]
+    SofaLight,
+    #[serde(rename = "outdoor_light")]
+    OutdoorLight,
 }
 
 impl DeviceName {
@@ -49,6 +58,10 @@ impl DeviceName {
             DeviceName::HueLivingroom5 => "hue_livingroom_5",
             DeviceName::HueLivingroom6 => "hue_livingroom_6",
             DeviceName::IkeaMushroom => "ikea_mushroom",
+            DeviceName::IkeaDonut => "ikea_donut",
+            DeviceName::LightBulb => "light_bulb",
+            DeviceName::SofaLight => "sofa_light",
+            DeviceName::OutdoorLight => "outdoor_light",
         }
     }
 }
@@ -83,24 +96,6 @@ pub struct LightPayload {
     pub state: LightState,
     pub brightness: Brightness,
     pub color_temp: ColorTemp,
-}
-
-impl LightPayload {
-    pub fn on() -> Self {
-        Self {
-            state: LightState::On,
-            brightness: Brightness::High,
-            color_temp: ColorTemp::White,
-        }
-    }
-
-    pub fn off() -> Self {
-        Self {
-            state: LightState::Off,
-            brightness: Brightness::Low,
-            color_temp: ColorTemp::White,
-        }
-    }
 }
 
 pub struct ZigbeeController {
@@ -170,43 +165,33 @@ impl ZigbeeController {
             .await
     }
 
-    pub async fn turn_off(&self, device: DeviceName) -> Result<(), ClientError> {
-        self.send_payload(&device, &LightPayload::off()).await?;
-        Ok(())
-    }
-
-    pub async fn turn_on(&self, device: DeviceName) -> Result<(), ClientError> {
-        self.send_payload(&device, &LightPayload::on()).await?;
-        Ok(())
-    }
-
     pub async fn turn_all_off(&self) -> Result<(), ClientError> {
-        for device in &self.bedroom {
-            self.turn_off(*device).await?;
-        }
+        let payload = LightPayload {
+            state: LightState::Off,
+            brightness: Brightness::Min,
+            color_temp: ColorTemp::Warm,
+        };
 
-        for device in &self.kitchen {
-            self.turn_off(*device).await?;
-        }
-
-        for device in &self.living_room {
-            self.turn_off(*device).await?;
+        for device_name in DeviceName::iter() {
+            self.send_payload(&device_name, &payload).await?;
         }
 
         Ok(())
     }
 
-    pub async fn turn_all_on(&self) -> Result<(), ClientError> {
-        for device in &self.bedroom {
-            self.turn_on(*device).await?;
-        }
+    pub async fn turn_all_on(
+        &self,
+        brightness: Brightness,
+        color_temp: ColorTemp,
+    ) -> Result<(), ClientError> {
+        let payload = LightPayload {
+            state: LightState::On,
+            brightness,
+            color_temp,
+        };
 
-        for device in &self.kitchen {
-            self.turn_on(*device).await?;
-        }
-
-        for device in &self.living_room {
-            self.turn_on(*device).await?;
+        for device_name in DeviceName::iter() {
+            self.send_payload(&device_name, &payload).await?;
         }
 
         Ok(())
@@ -219,11 +204,4 @@ impl ZigbeeController {
     pub async fn movie_mode(&self) -> Result<(), ClientError> {
         todo!();
     }
-}
-
-#[cfg(test)]
-mod tests {
-
-    #[tokio::test]
-    async fn dummy() {}
 }
