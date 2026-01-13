@@ -177,10 +177,16 @@ impl ZigbeeController {
     pub async fn movie_mode(&self) -> Result<(), ClientError> {
         todo!();
     }
+
+    pub async fn party_mode(&self) -> Result<(), ClientError> {
+        todo!();
+    }
 }
 
 #[cfg(test)]
 pub mod tests {
+    use std::time::Duration;
+
     use crate::tools::zigbee::{Brightness, ColorTemp, ZigbeeController};
 
     async fn setup_controller() -> ZigbeeController {
@@ -191,8 +197,10 @@ pub mod tests {
     async fn turn_all_on_success() {
         let controller = setup_controller().await;
         let result = controller
-            .turn_all_on(Brightness::Max, ColorTemp::White)
+            .turn_all_on(Brightness::Max, ColorTemp::Blue)
             .await;
+
+        tokio::time::sleep(Duration::from_millis(400)).await;
 
         assert!(
             result.is_ok(),

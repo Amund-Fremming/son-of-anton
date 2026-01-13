@@ -184,3 +184,25 @@
 1768327331: New connection from 192.168.147.1:43032 on port 1883.
 1768327331: New client connected from 192.168.147.1:43032 as son-of-anton (p2, c1, k5).
 1768327335: Client son-of-anton closed its connection.
+1768327347: Client mqttjs_b7203483 disconnected.
+1768338512: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768338532: New connection from 192.168.147.1:55820 on port 1883.
+1768338532: New client connected from 192.168.147.1:55820 as mqttjs_93046a59 (p2, c1, k60).
+1768338546: New connection from 192.168.147.1:42312 on port 1883.
+1768338546: New client connected from 192.168.147.1:42312 as son-of-anton (p2, c1, k5).
+1768338547: Client son-of-anton closed its connection.
+1768338556: New connection from 192.168.147.1:43840 on port 1883.
+1768338556: New client connected from 192.168.147.1:43840 as son-of-anton (p2, c1, k5).
+1768338560: Client son-of-anton closed its connection.
+1768338672: New connection from 192.168.147.1:39682 on port 1883.
+1768338672: New client connected from 192.168.147.1:39682 as son-of-anton (p2, c1, k5).
+1768338676: Client son-of-anton closed its connection.
+1768338681: New connection from 192.168.147.1:43038 on port 1883.
+1768338681: New client connected from 192.168.147.1:43038 as son-of-anton (p2, c1, k5).
+1768338685: Client son-of-anton closed its connection.
+1768338879: New connection from 192.168.147.1:44152 on port 1883.
+1768338879: New client connected from 192.168.147.1:44152 as son-of-anton (p2, c1, k5).
+1768338881: Client son-of-anton closed its connection.
+1768338883: New connection from 192.168.147.1:44164 on port 1883.
+1768338883: New client connected from 192.168.147.1:44164 as son-of-anton (p2, c1, k5).
+1768338887: Client son-of-anton closed its connection.
