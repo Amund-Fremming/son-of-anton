@@ -191,7 +191,7 @@ pub mod tests {
     async fn turn_all_on_success() {
         let controller = setup_controller().await;
         let result = controller
-            .turn_all_on(Brightness::Medium, ColorTemp::White)
+            .turn_all_on(Brightness::Max, ColorTemp::White)
             .await;
 
         assert!(
@@ -201,7 +201,7 @@ pub mod tests {
         );
 
         let result = controller
-            .turn_all_on(Brightness::Max, ColorTemp::Warm)
+            .turn_all_on(Brightness::Medium, ColorTemp::Warm)
             .await;
 
         assert!(

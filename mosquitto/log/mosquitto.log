@@ -178,3 +178,9 @@
 1768327118: New connection from 192.168.147.1:38952 on port 1883.
 1768327118: New client connected from 192.168.147.1:38952 as son-of-anton (p2, c1, k5).
 1768327122: Client son-of-anton closed its connection.
+1768327327: New connection from 192.168.147.1:35332 on port 1883.
+1768327327: New client connected from 192.168.147.1:35332 as son-of-anton (p2, c1, k5).
+1768327329: Client son-of-anton closed its connection.
+1768327331: New connection from 192.168.147.1:43032 on port 1883.
+1768327331: New client connected from 192.168.147.1:43032 as son-of-anton (p2, c1, k5).
+1768327335: Client son-of-anton closed its connection.
