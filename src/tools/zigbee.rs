@@ -1,5 +1,12 @@
 use std::time::Duration;
 
+/*
+    TODO
+    - rename all lights to use name1 instead of name_1, then use stum and remove the as_str
+    - group together liights in clusters, single lights stay alone
+    - set modes, and some funciton to turn on and off single lights/clusters
+*/
+
 use rumqttc::{AsyncClient, ClientError, MqttOptions, QoS};
 use serde::{Deserialize, Serialize};
 use serde_json::json;
