@@ -122,3 +122,59 @@
 1768249306: Saving in-memory database to /mosquitto/data//mosquitto.db.
 1768287496: mosquitto version 2.0.22 terminating
 1768287496: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768323870: mosquitto version 2.0.22 starting
+1768323870: Config loaded from /mosquitto/config/mosquitto.conf.
+1768323870: Opening ipv4 listen socket on port 1883.
+1768323870: Opening ipv6 listen socket on port 1883.
+1768323870: mosquitto version 2.0.22 running
+1768323893: New connection from 192.168.147.1:59534 on port 1883.
+1768323893: New client connected from 192.168.147.1:59534 as mqttjs_9b4dd9d8 (p2, c1, k60).
+1768324325: Client mqttjs_9b4dd9d8 disconnected.
+1768324354: New connection from 192.168.147.1:44648 on port 1883.
+1768324354: New client connected from 192.168.147.1:44648 as mqttjs_b7203483 (p2, c1, k60).
+1768325252: New connection from 192.168.147.1:44298 on port 1883.
+1768325252: New client connected from 192.168.147.1:44298 as son-of-anton (p2, c1, k5).
+1768325254: Client son-of-anton closed its connection.
+1768325553: New connection from 192.168.147.1:60712 on port 1883.
+1768325553: New client connected from 192.168.147.1:60712 as son-of-anton (p2, c1, k5).
+1768325554: Client son-of-anton closed its connection.
+1768325585: New connection from 192.168.147.1:46992 on port 1883.
+1768325585: New client connected from 192.168.147.1:46992 as son-of-anton (p2, c1, k5).
+1768325586: Client son-of-anton closed its connection.
+1768325611: New connection from 192.168.147.1:49728 on port 1883.
+1768325611: New client connected from 192.168.147.1:49728 as son-of-anton (p2, c1, k5).
+1768325613: Client son-of-anton closed its connection.
+1768325686: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768326098: New connection from 192.168.147.1:37660 on port 1883.
+1768326098: New client connected from 192.168.147.1:37660 as son-of-anton (p2, c1, k5).
+1768326100: Client son-of-anton closed its connection.
+1768326267: New connection from 192.168.147.1:46092 on port 1883.
+1768326267: New client connected from 192.168.147.1:46092 as son-of-anton (p2, c1, k5).
+1768326268: Client son-of-anton closed its connection.
+1768326325: New connection from 192.168.147.1:33642 on port 1883.
+1768326325: New client connected from 192.168.147.1:33642 as son-of-anton (p2, c1, k5).
+1768326327: Client son-of-anton closed its connection.
+1768326330: New connection from 192.168.147.1:38784 on port 1883.
+1768326330: New client connected from 192.168.147.1:38784 as son-of-anton (p2, c1, k5).
+1768326333: Client son-of-anton closed its connection.
+1768326352: New connection from 192.168.147.1:47440 on port 1883.
+1768326352: New client connected from 192.168.147.1:47440 as son-of-anton (p2, c1, k5).
+1768326355: Client son-of-anton closed its connection.
+1768326383: New connection from 192.168.147.1:59124 on port 1883.
+1768326383: New client connected from 192.168.147.1:59124 as son-of-anton (p2, c1, k5).
+1768326385: Client son-of-anton closed its connection.
+1768326501: New connection from 192.168.147.1:40400 on port 1883.
+1768326501: New client connected from 192.168.147.1:40400 as son-of-anton (p2, c1, k5).
+1768326502: Client son-of-anton closed its connection.
+1768326507: New connection from 192.168.147.1:40408 on port 1883.
+1768326507: New client connected from 192.168.147.1:40408 as son-of-anton (p2, c1, k5).
+1768326509: Client son-of-anton closed its connection.
+1768326583: New connection from 192.168.147.1:33942 on port 1883.
+1768326583: New client connected from 192.168.147.1:33942 as son-of-anton (p2, c1, k5).
+1768326586: Client son-of-anton closed its connection.
+1768327112: New connection from 192.168.147.1:38944 on port 1883.
+1768327112: New client connected from 192.168.147.1:38944 as son-of-anton (p2, c1, k5).
+1768327114: Client son-of-anton closed its connection.
+1768327118: New connection from 192.168.147.1:38952 on port 1883.
+1768327118: New client connected from 192.168.147.1:38952 as son-of-anton (p2, c1, k5).
+1768327122: Client son-of-anton closed its connection.

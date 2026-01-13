@@ -2,66 +2,51 @@ use std::time::Duration;
 
 use rumqttc::{AsyncClient, ClientError, MqttOptions, QoS};
 use serde::{Deserialize, Serialize};
-use strum::{EnumIter, IntoEnumIterator};
+use serde_json::json;
+use serde_repr::Serialize_repr;
+use strum::IntoEnumIterator;
 
-#[derive(Serialize, Deserialize, Debug, Clone, EnumIter)]
+#[derive(Debug, Clone, strum::EnumIter)]
 pub enum DeviceName {
-    #[serde(rename = "hue_kitchen_1")]
     HueKitchen1,
-    #[serde(rename = "hue_kitchen_2")]
     HueKitchen2,
-    #[serde(rename = "hue_kitchen_3")]
     HueKitchen3,
-    #[serde(rename = "hue_bedroom_1")]
     HueBedroom1,
-    #[serde(rename = "hue_bedroom_2")]
     HueBedroom2,
-    #[serde(rename = "hue_bedroom_3")]
     HueBedroom3,
-    #[serde(rename = "hue_livingroom_1")]
     HueLivingroom1,
-    #[serde(rename = "hue_livingroom_2")]
     HueLivingroom2,
-    #[serde(rename = "hue_livingroom_3")]
     HueLivingroom3,
-    #[serde(rename = "hue_livingroom_4")]
     HueLivingroom4,
-    #[serde(rename = "hue_livingroom_5")]
     HueLivingroom5,
-    #[serde(rename = "hue_livingroom_6")]
     HueLivingroom6,
-    #[serde(rename = "ikea_mushroom")]
     IkeaMushroom,
-    #[serde(rename = "ikea_donut")]
     IkeaDonut,
-    #[serde(rename = "light_bulb")]
     LightBulb,
-    #[serde(rename = "sofa_light")]
     SofaLight,
-    #[serde(rename = "outdoor_light")]
-    OutdoorLight,
+    BallLight,
 }
 
 impl DeviceName {
     pub fn as_str(&self) -> &'static str {
         match self {
-            DeviceName::HueKitchen1 => "hue_kitchen_1",
-            DeviceName::HueKitchen2 => "hue_kitchen_2",
-            DeviceName::HueKitchen3 => "hue_kitchen_3",
-            DeviceName::HueBedroom1 => "hue_bedroom_1",
-            DeviceName::HueBedroom2 => "hue_bedroom_2",
-            DeviceName::HueBedroom3 => "hue_bedroom_3",
-            DeviceName::HueLivingroom1 => "hue_livingroom_1",
-            DeviceName::HueLivingroom2 => "hue_livingroom_2",
-            DeviceName::HueLivingroom3 => "hue_livingroom_3",
-            DeviceName::HueLivingroom4 => "hue_livingroom_4",
-            DeviceName::HueLivingroom5 => "hue_livingroom_5",
-            DeviceName::HueLivingroom6 => "hue_livingroom_6",
-            DeviceName::IkeaMushroom => "ikea_mushroom",
-            DeviceName::IkeaDonut => "ikea_donut",
-            DeviceName::LightBulb => "light_bulb",
-            DeviceName::SofaLight => "sofa_light",
-            DeviceName::OutdoorLight => "outdoor_light",
+            Self::HueKitchen1 => "hue_kitchen_1",
+            Self::HueKitchen2 => "hue_kitchen_2",
+            Self::HueKitchen3 => "hue_kitchen_3",
+            Self::HueBedroom1 => "hue_bedroom_1",
+            Self::HueBedroom2 => "hue_bedroom_2",
+            Self::HueBedroom3 => "hue_bedroom_3",
+            Self::HueLivingroom1 => "hue_livingroom_1",
+            Self::HueLivingroom2 => "hue_livingroom_2",
+            Self::HueLivingroom3 => "hue_livingroom_3",
+            Self::HueLivingroom4 => "hue_livingroom_4",
+            Self::HueLivingroom5 => "hue_livingroom_5",
+            Self::HueLivingroom6 => "hue_livingroom_6",
+            Self::IkeaMushroom => "ikea_mushroom",
+            Self::IkeaDonut => "ikea_donut",
+            Self::LightBulb => "light_bulb",
+            Self::SofaLight => "sofa_light",
+            Self::BallLight => "ball_light",
         }
     }
 }
@@ -74,7 +59,8 @@ pub enum LightState {
 }
 
 /// Range: 250-454
-#[derive(Serialize, Deserialize, Debug)]
+#[repr(u16)]
+#[derive(Debug, Serialize_repr)]
 pub enum ColorTemp {
     Blue = 250,
     White = 352,
@@ -82,7 +68,8 @@ pub enum ColorTemp {
 }
 
 /// Range: 0-254
-#[derive(Serialize, Deserialize, Debug)]
+#[repr(u8)]
+#[derive(Debug, Serialize_repr)]
 pub enum Brightness {
     Min = 8,
     Low = 64,
@@ -91,7 +78,7 @@ pub enum Brightness {
     Max = 254,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Debug)]
 pub struct LightPayload {
     pub state: LightState,
     pub brightness: Brightness,
@@ -100,9 +87,6 @@ pub struct LightPayload {
 
 pub struct ZigbeeController {
     client: AsyncClient,
-    living_room: Vec<DeviceName>,
-    kitchen: Vec<DeviceName>,
-    bedroom: Vec<DeviceName>,
 }
 
 impl ZigbeeController {
@@ -122,34 +106,16 @@ impl ZigbeeController {
             }
         });
 
-        let living_room = vec![
-            DeviceName::HueLivingroom1,
-            DeviceName::HueLivingroom2,
-            DeviceName::HueLivingroom3,
-            DeviceName::HueLivingroom4,
-            DeviceName::HueLivingroom5,
-            DeviceName::HueLivingroom6,
-            DeviceName::IkeaMushroom,
-        ];
+        Self { client }
+    }
 
-        let kitchen = vec![
-            DeviceName::HueKitchen1,
-            DeviceName::HueKitchen2,
-            DeviceName::HueKitchen3,
-        ];
+    async fn turn_off(&self, device_name: &DeviceName) -> Result<(), ClientError> {
+        let topic = format!("zigbee2mqtt/{}/set", device_name.as_str());
+        let payload = json!({ "state": "OFF" }).to_string();
 
-        let bedroom = vec![
-            DeviceName::HueBedroom1,
-            DeviceName::HueBedroom2,
-            DeviceName::HueBedroom3,
-        ];
-
-        Self {
-            client,
-            living_room,
-            kitchen,
-            bedroom,
-        }
+        self.client
+            .publish(&topic, QoS::AtLeastOnce, false, payload)
+            .await
     }
 
     async fn send_payload(
@@ -158,7 +124,7 @@ impl ZigbeeController {
         payload: &LightPayload,
     ) -> Result<(), ClientError> {
         let topic = format!("zigbee2mqtt/{}/set", device_name.as_str());
-        let payload = serde_json::to_string(payload).unwrap();
+        let payload = serde_json::to_string(payload).unwrap(); // TODO FIX
 
         self.client
             .publish(&topic, QoS::AtLeastOnce, false, payload)
@@ -166,15 +132,12 @@ impl ZigbeeController {
     }
 
     pub async fn turn_all_off(&self) -> Result<(), ClientError> {
-        let payload = LightPayload {
-            state: LightState::Off,
-            brightness: Brightness::Min,
-            color_temp: ColorTemp::Warm,
-        };
-
         for device_name in DeviceName::iter() {
-            self.send_payload(&device_name, &payload).await?;
+            tokio::time::sleep(Duration::from_millis(100)).await;
+            self.turn_off(&device_name).await?;
         }
+
+        tokio::time::sleep(Duration::from_millis(100)).await;
 
         Ok(())
     }
@@ -191,8 +154,11 @@ impl ZigbeeController {
         };
 
         for device_name in DeviceName::iter() {
+            tokio::time::sleep(Duration::from_millis(100)).await;
             self.send_payload(&device_name, &payload).await?;
         }
+
+        tokio::time::sleep(Duration::from_millis(100)).await;
 
         Ok(())
     }
@@ -203,5 +169,50 @@ impl ZigbeeController {
 
     pub async fn movie_mode(&self) -> Result<(), ClientError> {
         todo!();
+    }
+}
+
+#[cfg(test)]
+pub mod tests {
+    use crate::tools::zigbee::{Brightness, ColorTemp, ZigbeeController};
+
+    async fn setup_controller() -> ZigbeeController {
+        ZigbeeController::new("localhost", 1883).await
+    }
+
+    #[tokio::test]
+    async fn turn_all_on_success() {
+        let controller = setup_controller().await;
+        let result = controller
+            .turn_all_on(Brightness::Medium, ColorTemp::White)
+            .await;
+
+        assert!(
+            result.is_ok(),
+            "Controller failed to turn on all lights: {}",
+            result.err().unwrap().to_string(),
+        );
+
+        let result = controller
+            .turn_all_on(Brightness::Max, ColorTemp::Warm)
+            .await;
+
+        assert!(
+            result.is_ok(),
+            "Controller failed to turn on all lights: {}",
+            result.err().unwrap().to_string(),
+        );
+    }
+
+    #[tokio::test]
+    async fn turn_all_off_success() {
+        let controller = setup_controller().await;
+        let result = controller.turn_all_off().await;
+
+        assert!(
+            result.is_ok(),
+            "Controller failed to turn off all lights: {}",
+            result.err().unwrap().to_string(),
+        );
     }
 }

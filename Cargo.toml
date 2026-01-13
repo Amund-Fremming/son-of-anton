@@ -13,3 +13,4 @@ dotenvy = "0.15.7"
 thiserror = "2.0.17"
 chrono = { version = "0.4.42", features = ["serde"] }
 strum = { version = "0.27.2", features = ["derive"] }
+serde_repr = "0.1.20"
