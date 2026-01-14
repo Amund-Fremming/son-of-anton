@@ -27,3 +27,7 @@ mqtt:
 - ZBT-2 (Nabu Casa) uses `ember` adapter type, not `zstack`
 - Baud rate must be `460800` (not the default 115200)
 - When running Zigbee2MQTT natively on macOS with Mosquitto in Docker, use `localhost`
+
+Have used some time here and there to setup a zigbee controlller, where i created all the zigbee devices i need as enums.
+
+I bought some ikea smart adapters TRETAKT to use for my non smart lights, and i can now controll almost al my lights.

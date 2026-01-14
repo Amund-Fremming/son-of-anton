@@ -206,3 +206,6 @@
 1768338883: New connection from 192.168.147.1:44164 on port 1883.
 1768338883: New client connected from 192.168.147.1:44164 as son-of-anton (p2, c1, k5).
 1768338887: Client son-of-anton closed its connection.
+1768339152: Client mqttjs_93046a59 disconnected.
+1768339155: mosquitto version 2.0.22 terminating
+1768339155: Saving in-memory database to /mosquitto/data//mosquitto.db.
