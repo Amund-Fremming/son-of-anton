@@ -13,4 +13,7 @@ pub enum AppError {
 
     #[error("Http error: {0} - {1}")]
     Http(StatusCode, String),
+
+    #[error("Standard library error: {0}")]
+    Std(#[from] std::io::Error),
 }

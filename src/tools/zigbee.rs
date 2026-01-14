@@ -92,6 +92,7 @@ pub struct LightPayload {
     pub color_temp: ColorTemp,
 }
 
+#[derive(Clone)]
 pub struct ZigbeeController {
     client: AsyncClient,
 }

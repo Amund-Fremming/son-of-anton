@@ -209,3 +209,624 @@
 1768339152: Client mqttjs_93046a59 disconnected.
 1768339155: mosquitto version 2.0.22 terminating
 1768339155: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768399441: mosquitto version 2.0.22 starting
+1768399441: Config loaded from /mosquitto/config/mosquitto.conf.
+1768399441: Opening ipv4 listen socket on port 1883.
+1768399441: Opening ipv6 listen socket on port 1883.
+1768399441: mosquitto version 2.0.22 running
+1768399622: New connection from 192.168.147.1:35356 on port 1883.
+1768399622: New client connected from 192.168.147.1:35356 as son-of-anton (p2, c1, k5).
+1768399642: Client son-of-anton closed its connection.
+1768399644: New connection from 192.168.147.1:35534 on port 1883.
+1768399644: New client connected from 192.168.147.1:35534 as son-of-anton (p2, c1, k5).
+1768401816: Client son-of-anton has exceeded timeout, disconnecting.
+1768401816: New connection from 192.168.147.1:60252 on port 1883.
+1768401816: New connection from 192.168.147.1:60278 on port 1883.
+1768401816: New connection from 192.168.147.1:60264 on port 1883.
+1768401816: New connection from 192.168.147.1:60288 on port 1883.
+1768401816: New connection from 192.168.147.1:60296 on port 1883.
+1768401816: New connection from 192.168.147.1:60312 on port 1883.
+1768401816: New connection from 192.168.147.1:60302 on port 1883.
+1768401816: New connection from 192.168.147.1:60326 on port 1883.
+1768401816: New connection from 192.168.147.1:60334 on port 1883.
+1768401816: New connection from 192.168.147.1:60354 on port 1883.
+1768401816: New connection from 192.168.147.1:60338 on port 1883.
+1768401816: New connection from 192.168.147.1:60360 on port 1883.
+1768401816: New connection from 192.168.147.1:60376 on port 1883.
+1768401816: New connection from 192.168.147.1:60378 on port 1883.
+1768401816: New connection from 192.168.147.1:60388 on port 1883.
+1768401816: New connection from 192.168.147.1:60396 on port 1883.
+1768401816: New connection from 192.168.147.1:60398 on port 1883.
+1768401816: New connection from 192.168.147.1:60412 on port 1883.
+1768401816: New connection from 192.168.147.1:60422 on port 1883.
+1768401816: New connection from 192.168.147.1:60436 on port 1883.
+1768401816: New connection from 192.168.147.1:60452 on port 1883.
+1768401816: New connection from 192.168.147.1:60468 on port 1883.
+1768401816: New connection from 192.168.147.1:60480 on port 1883.
+1768401816: New connection from 192.168.147.1:60492 on port 1883.
+1768401816: New connection from 192.168.147.1:60502 on port 1883.
+1768401816: New connection from 192.168.147.1:60508 on port 1883.
+1768401816: New connection from 192.168.147.1:60522 on port 1883.
+1768401816: New connection from 192.168.147.1:60528 on port 1883.
+1768401816: New connection from 192.168.147.1:60542 on port 1883.
+1768401816: New connection from 192.168.147.1:60544 on port 1883.
+1768401816: New connection from 192.168.147.1:60552 on port 1883.
+1768401817: New connection from 192.168.147.1:60558 on port 1883.
+1768401817: New connection from 192.168.147.1:60566 on port 1883.
+1768401817: New connection from 192.168.147.1:60568 on port 1883.
+1768401817: New connection from 192.168.147.1:60580 on port 1883.
+1768401817: New connection from 192.168.147.1:60582 on port 1883.
+1768401817: New connection from 192.168.147.1:60596 on port 1883.
+1768401817: New connection from 192.168.147.1:60598 on port 1883.
+1768401817: New connection from 192.168.147.1:60610 on port 1883.
+1768401817: New connection from 192.168.147.1:60622 on port 1883.
+1768401817: New connection from 192.168.147.1:60624 on port 1883.
+1768401817: New connection from 192.168.147.1:60630 on port 1883.
+1768401817: New connection from 192.168.147.1:60638 on port 1883.
+1768401817: New connection from 192.168.147.1:60652 on port 1883.
+1768401817: New connection from 192.168.147.1:60654 on port 1883.
+1768401817: New connection from 192.168.147.1:60660 on port 1883.
+1768401817: New connection from 192.168.147.1:60676 on port 1883.
+1768401817: New connection from 192.168.147.1:60688 on port 1883.
+1768401817: New connection from 192.168.147.1:60696 on port 1883.
+1768401817: New connection from 192.168.147.1:60698 on port 1883.
+1768401817: New connection from 192.168.147.1:60712 on port 1883.
+1768401817: New connection from 192.168.147.1:60720 on port 1883.
+1768401817: New connection from 192.168.147.1:60736 on port 1883.
+1768401817: New connection from 192.168.147.1:60746 on port 1883.
+1768401817: New connection from 192.168.147.1:60754 on port 1883.
+1768401817: New connection from 192.168.147.1:60764 on port 1883.
+1768401817: New connection from 192.168.147.1:60778 on port 1883.
+1768401817: New connection from 192.168.147.1:60794 on port 1883.
+1768401817: New connection from 192.168.147.1:60806 on port 1883.
+1768401817: New connection from 192.168.147.1:60818 on port 1883.
+1768401817: New connection from 192.168.147.1:60828 on port 1883.
+1768401817: New connection from 192.168.147.1:60842 on port 1883.
+1768401817: New connection from 192.168.147.1:60854 on port 1883.
+1768401817: New connection from 192.168.147.1:60868 on port 1883.
+1768401817: New connection from 192.168.147.1:60878 on port 1883.
+1768401817: New connection from 192.168.147.1:60894 on port 1883.
+1768401817: New connection from 192.168.147.1:60896 on port 1883.
+1768401817: New connection from 192.168.147.1:60898 on port 1883.
+1768401817: New connection from 192.168.147.1:60910 on port 1883.
+1768401817: New connection from 192.168.147.1:60920 on port 1883.
+1768401817: New connection from 192.168.147.1:60924 on port 1883.
+1768401817: New connection from 192.168.147.1:60932 on port 1883.
+1768401817: New connection from 192.168.147.1:60942 on port 1883.
+1768401817: New connection from 192.168.147.1:60946 on port 1883.
+1768401817: New connection from 192.168.147.1:60968 on port 1883.
+1768401817: New connection from 192.168.147.1:60956 on port 1883.
+1768401817: New connection from 192.168.147.1:60984 on port 1883.
+1768401817: New connection from 192.168.147.1:60990 on port 1883.
+1768401817: New connection from 192.168.147.1:60996 on port 1883.
+1768401817: New connection from 192.168.147.1:32768 on port 1883.
+1768401817: New connection from 192.168.147.1:32784 on port 1883.
+1768401817: New connection from 192.168.147.1:32772 on port 1883.
+1768401817: New connection from 192.168.147.1:32786 on port 1883.
+1768401817: New connection from 192.168.147.1:32802 on port 1883.
+1768401817: New connection from 192.168.147.1:32806 on port 1883.
+1768401817: New connection from 192.168.147.1:32820 on port 1883.
+1768401817: New connection from 192.168.147.1:32814 on port 1883.
+1768401817: New connection from 192.168.147.1:32826 on port 1883.
+1768401817: New connection from 192.168.147.1:32838 on port 1883.
+1768401817: New connection from 192.168.147.1:32844 on port 1883.
+1768401817: New connection from 192.168.147.1:32858 on port 1883.
+1768401817: New connection from 192.168.147.1:32868 on port 1883.
+1768401817: New connection from 192.168.147.1:32876 on port 1883.
+1768401817: New connection from 192.168.147.1:32882 on port 1883.
+1768401817: New connection from 192.168.147.1:32894 on port 1883.
+1768401817: New client connected from 192.168.147.1:60468 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60326 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60398 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60396 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60388 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60338 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60522 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60502 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60480 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60436 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60422 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60412 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60334 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60302 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60312 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60296 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60452 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60544 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60528 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60508 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60492 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60542 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60278 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60552 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60378 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60376 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60360 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60354 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60652 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60654 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60252 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60638 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60598 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60558 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60580 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60624 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60660 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60676 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60622 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60688 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60288 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60630 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60696 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60698 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60712 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60720 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60736 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60582 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60746 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60754 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60764 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60778 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60794 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60806 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60818 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60828 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60842 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60854 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60868 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60878 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60894 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60896 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60898 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60910 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60920 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60924 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60932 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60942 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60946 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60968 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60956 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60984 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60990 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60996 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:32768 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:32784 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:32786 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:32826 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:32838 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:32844 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton closed its connection.
+1768401817: New connection from 192.168.147.1:32920 on port 1883.
+1768401817: New connection from 192.168.147.1:32898 on port 1883.
+1768401817: New connection from 192.168.147.1:32900 on port 1883.
+1768401817: New connection from 192.168.147.1:32936 on port 1883.
+1768401817: New connection from 192.168.147.1:32952 on port 1883.
+1768401817: New connection from 192.168.147.1:32962 on port 1883.
+1768401817: New connection from 192.168.147.1:32968 on port 1883.
+1768401817: New connection from 192.168.147.1:32984 on port 1883.
+1768401817: New connection from 192.168.147.1:32994 on port 1883.
+1768401817: New connection from 192.168.147.1:33002 on port 1883.
+1768401817: New connection from 192.168.147.1:33008 on port 1883.
+1768401817: New connection from 192.168.147.1:33016 on port 1883.
+1768401817: New connection from 192.168.147.1:33024 on port 1883.
+1768401817: New connection from 192.168.147.1:33030 on port 1883.
+1768401817: New connection from 192.168.147.1:33042 on port 1883.
+1768401817: New connection from 192.168.147.1:33058 on port 1883.
+1768401817: New connection from 192.168.147.1:33062 on port 1883.
+1768401817: New connection from 192.168.147.1:33066 on port 1883.
+1768401817: New connection from 192.168.147.1:33076 on port 1883.
+1768401817: New connection from 192.168.147.1:33090 on port 1883.
+1768401817: New connection from 192.168.147.1:33092 on port 1883.
+1768401817: New connection from 192.168.147.1:33096 on port 1883.
+1768401817: New connection from 192.168.147.1:33102 on port 1883.
+1768401817: New connection from 192.168.147.1:33114 on port 1883.
+1768401817: New connection from 192.168.147.1:33124 on port 1883.
+1768401817: New connection from 192.168.147.1:33128 on port 1883.
+1768401817: New connection from 192.168.147.1:33144 on port 1883.
+1768401817: New connection from 192.168.147.1:33150 on port 1883.
+1768401817: New connection from 192.168.147.1:33160 on port 1883.
+1768401817: New connection from 192.168.147.1:33168 on port 1883.
+1768401817: New connection from 192.168.147.1:33182 on port 1883.
+1768401817: New connection from 192.168.147.1:33184 on port 1883.
+1768401817: New connection from 192.168.147.1:33192 on port 1883.
+1768401817: New connection from 192.168.147.1:33200 on port 1883.
+1768401817: New connection from 192.168.147.1:33204 on port 1883.
+1768401817: New connection from 192.168.147.1:33208 on port 1883.
+1768401817: New connection from 192.168.147.1:33212 on port 1883.
+1768401817: New connection from 192.168.147.1:33224 on port 1883.
+1768401817: New connection from 192.168.147.1:33234 on port 1883.
+1768401817: New connection from 192.168.147.1:33238 on port 1883.
+1768401817: New connection from 192.168.147.1:33240 on port 1883.
+1768401817: New connection from 192.168.147.1:33242 on port 1883.
+1768401817: New connection from 192.168.147.1:33248 on port 1883.
+1768401817: New connection from 192.168.147.1:33258 on port 1883.
+1768401817: New connection from 192.168.147.1:33264 on port 1883.
+1768401817: New connection from 192.168.147.1:33268 on port 1883.
+1768401817: New connection from 192.168.147.1:33280 on port 1883.
+1768401817: New connection from 192.168.147.1:33282 on port 1883.
+1768401817: New connection from 192.168.147.1:33288 on port 1883.
+1768401817: New connection from 192.168.147.1:33302 on port 1883.
+1768401817: New connection from 192.168.147.1:33310 on port 1883.
+1768401817: New connection from 192.168.147.1:33322 on port 1883.
+1768401817: New connection from 192.168.147.1:33338 on port 1883.
+1768401817: New connection from 192.168.147.1:33336 on port 1883.
+1768401817: New connection from 192.168.147.1:33352 on port 1883.
+1768401817: New connection from 192.168.147.1:33378 on port 1883.
+1768401817: New connection from 192.168.147.1:33366 on port 1883.
+1768401817: New connection from 192.168.147.1:33392 on port 1883.
+1768401817: New connection from 192.168.147.1:33408 on port 1883.
+1768401817: New connection from 192.168.147.1:33420 on port 1883.
+1768401817: New connection from 192.168.147.1:33418 on port 1883.
+1768401817: New connection from 192.168.147.1:33450 on port 1883.
+1768401817: New connection from 192.168.147.1:33436 on port 1883.
+1768401817: New connection from 192.168.147.1:33452 on port 1883.
+1768401817: New connection from 192.168.147.1:33456 on port 1883.
+1768401817: New connection from 192.168.147.1:33470 on port 1883.
+1768401817: New connection from 192.168.147.1:33472 on port 1883.
+1768401817: New connection from 192.168.147.1:33486 on port 1883.
+1768401817: New connection from 192.168.147.1:33494 on port 1883.
+1768401817: New connection from 192.168.147.1:33506 on port 1883.
+1768401817: New connection from 192.168.147.1:33522 on port 1883.
+1768401817: New connection from 192.168.147.1:33530 on port 1883.
+1768401817: New connection from 192.168.147.1:33538 on port 1883.
+1768401817: New connection from 192.168.147.1:33548 on port 1883.
+1768401817: New connection from 192.168.147.1:33564 on port 1883.
+1768401817: New connection from 192.168.147.1:33578 on port 1883.
+1768401817: New connection from 192.168.147.1:33592 on port 1883.
+1768401817: New connection from 192.168.147.1:33594 on port 1883.
+1768401817: New connection from 192.168.147.1:33600 on port 1883.
+1768401817: New connection from 192.168.147.1:33602 on port 1883.
+1768401817: New connection from 192.168.147.1:33608 on port 1883.
+1768401817: New connection from 192.168.147.1:33624 on port 1883.
+1768401817: New client connected from 192.168.147.1:32772 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:32814 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:32802 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:32806 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:32858 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:32876 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:32868 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:32894 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:32820 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:32882 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60566 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60610 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60568 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60596 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:60264 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton closed its connection.
+1768401817: New client connected from 192.168.147.1:32920 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:32898 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:32900 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:32936 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:32952 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:32962 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:32968 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:32984 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:32994 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33002 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33008 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33016 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33024 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33030 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33042 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33058 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33062 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33066 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33076 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33090 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33092 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33096 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33102 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33114 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33124 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33128 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33144 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33150 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33160 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33168 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33182 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33184 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33192 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33200 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33204 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33208 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33212 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33224 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33234 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33238 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33240 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33242 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33248 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33258 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33264 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33268 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33280 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33282 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33288 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33302 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33310 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33322 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33338 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33336 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33352 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33378 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33366 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33392 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33408 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33420 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33418 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33450 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33436 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33452 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33456 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33470 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33472 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33486 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33494 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33506 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33522 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33530 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33538 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33548 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33564 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33578 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33592 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33594 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33600 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33602 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33608 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton already connected, closing old connection.
+1768401817: New client connected from 192.168.147.1:33624 as son-of-anton (p2, c1, k5).
+1768401817: Client son-of-anton closed its connection.
+1768401818: New connection from 192.168.147.1:56772 on port 1883.
+1768401818: New client connected from 192.168.147.1:56772 as son-of-anton (p2, c1, k5).
+1768402051: Client son-of-anton closed its connection.
+1768402052: New connection from 192.168.147.1:34422 on port 1883.
+1768402052: New client connected from 192.168.147.1:34422 as son-of-anton (p2, c1, k5).
+1768402188: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768402397: Client son-of-anton closed its connection.
+1768402398: New connection from 192.168.147.1:57032 on port 1883.
+1768402398: New client connected from 192.168.147.1:57032 as son-of-anton (p2, c1, k5).
+1768402447: Client son-of-anton closed its connection.
+1768402448: New connection from 192.168.147.1:54672 on port 1883.
+1768402448: New client connected from 192.168.147.1:54672 as son-of-anton (p2, c1, k5).
+1768402481: Client son-of-anton closed its connection.
+1768402482: New connection from 192.168.147.1:40882 on port 1883.
+1768402482: New client connected from 192.168.147.1:40882 as son-of-anton (p2, c1, k5).
+1768402581: Client son-of-anton closed its connection.
+1768402582: New connection from 192.168.147.1:56394 on port 1883.
+1768402582: New client connected from 192.168.147.1:56394 as son-of-anton (p2, c1, k5).
+1768402714: Client son-of-anton closed its connection.
+1768402715: New connection from 192.168.147.1:37888 on port 1883.
+1768402715: New client connected from 192.168.147.1:37888 as son-of-anton (p2, c1, k5).
+1768403616: Client son-of-anton closed its connection.
+1768403618: New connection from 192.168.147.1:56206 on port 1883.
+1768403618: New client connected from 192.168.147.1:56206 as son-of-anton (p2, c1, k5).
+1768403989: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768404877: Client son-of-anton closed its connection.
+1768404907: New connection from 192.168.147.1:54206 on port 1883.
+1768404907: New client connected from 192.168.147.1:54206 as son-of-anton (p2, c1, k5).
+1768404996: Client son-of-anton closed its connection.
+1768405014: New connection from 192.168.147.1:45562 on port 1883.
+1768405014: New client connected from 192.168.147.1:45562 as son-of-anton (p2, c1, k5).
+1768405093: Client son-of-anton closed its connection.
+1768405095: New connection from 192.168.147.1:33946 on port 1883.
+1768405095: New client connected from 192.168.147.1:33946 as son-of-anton (p2, c1, k5).
+1768405111: Client son-of-anton closed its connection.
+1768405112: New connection from 192.168.147.1:41148 on port 1883.
+1768405112: New client connected from 192.168.147.1:41148 as son-of-anton (p2, c1, k5).
+1768405125: Client son-of-anton closed its connection.
+1768405127: New connection from 192.168.147.1:49320 on port 1883.
+1768405127: New client connected from 192.168.147.1:49320 as son-of-anton (p2, c1, k5).
+1768405250: Client son-of-anton closed its connection.
+1768405253: New connection from 192.168.147.1:51570 on port 1883.
+1768405253: New client connected from 192.168.147.1:51570 as son-of-anton (p2, c1, k5).
+1768405358: New connection from 192.168.147.1:37990 on port 1883.
+1768405358: Client son-of-anton already connected, closing old connection.
+1768405358: New client connected from 192.168.147.1:37990 as son-of-anton (p2, c1, k5).
+1768405358: Client son-of-anton closed its connection.
+1768405359: New connection from 192.168.147.1:37996 on port 1883.
+1768405359: New client connected from 192.168.147.1:37996 as son-of-anton (p2, c1, k5).
+1768405443: New connection from 192.168.147.1:35692 on port 1883.
+1768405443: Client son-of-anton already connected, closing old connection.
+1768405443: New client connected from 192.168.147.1:35692 as son-of-anton (p2, c1, k5).
+1768405443: Client son-of-anton closed its connection.
+1768405444: New connection from 192.168.147.1:35702 on port 1883.
+1768405444: New client connected from 192.168.147.1:35702 as son-of-anton (p2, c1, k5).
+1768405448: Client son-of-anton closed its connection.
+1768405450: New connection from 192.168.147.1:57050 on port 1883.
+1768405450: New client connected from 192.168.147.1:57050 as son-of-anton (p2, c1, k5).
+1768405480: Client son-of-anton closed its connection.
+1768405790: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768405791: New connection from 192.168.147.1:32804 on port 1883.
+1768405791: New client connected from 192.168.147.1:32804 as son-of-anton (p2, c1, k5).
+1768406175: Client son-of-anton closed its connection.
+1768406177: New connection from 192.168.147.1:39208 on port 1883.
+1768406177: New client connected from 192.168.147.1:39208 as son-of-anton (p2, c1, k5).
+1768406550: Client son-of-anton closed its connection.
+1768406551: New connection from 192.168.147.1:51590 on port 1883.
+1768406551: New client connected from 192.168.147.1:51590 as son-of-anton (p2, c1, k5).
+1768407297: Client son-of-anton closed its connection.
+1768407299: New connection from 192.168.147.1:51446 on port 1883.
+1768407299: New client connected from 192.168.147.1:51446 as son-of-anton (p2, c1, k5).
+1768407372: Client son-of-anton closed its connection.
+1768407374: New connection from 192.168.147.1:48988 on port 1883.
+1768407374: New client connected from 192.168.147.1:48988 as son-of-anton (p2, c1, k5).
+1768407591: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768407592: Client son-of-anton closed its connection.
+1768407593: New connection from 192.168.147.1:58002 on port 1883.
+1768407593: New client connected from 192.168.147.1:58002 as son-of-anton (p2, c1, k5).
+1768407680: Client son-of-anton closed its connection.
