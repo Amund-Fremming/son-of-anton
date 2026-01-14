@@ -28,17 +28,19 @@ pub struct WebState {
 
 impl WebState {
     pub fn log(&self, message: String) {
-        let mut logs = self.logs.lock().unwrap();
-        logs.push((Utc::now(), message));
-        
-        // Keep only the last 20 logs
-        if logs.len() > 20 {
-            logs.remove(0);
+        if let Ok(mut logs) = self.logs.lock() {
+            logs.push((Utc::now(), message));
+            
+            // Keep only the last 20 logs
+            if logs.len() > 20 {
+                let excess = logs.len() - 20;
+                logs.drain(0..excess);
+            }
         }
     }
     
     pub fn get_logs(&self) -> Vec<(DateTime<Utc>, String)> {
-        self.logs.lock().unwrap().clone()
+        self.logs.lock().map(|logs| logs.clone()).unwrap_or_default()
     }
 }
 
