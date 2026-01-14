@@ -50,7 +50,7 @@ async fn start_ngrok() {
 
     // Start ngrok tunnel
     info!("Starting ngrok tunnel...");
-    let child = Command::new("ngrok").args(&["http", "8001"]).spawn();
+    let child = Command::new("ngrok").args(&["http", "3000"]).spawn();
 
     match child {
         Ok(_) => info!("Ngrok started successfully"),
