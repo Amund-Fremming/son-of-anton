@@ -2,12 +2,15 @@ use axum::{
     Router,
     extract::{Path, State},
     http::StatusCode,
-    response::{Html, IntoResponse},
+    response::{Html, IntoResponse, Json},
     routing::{get, post},
 };
+use chrono::{DateTime, Utc};
 use ngrok::prelude::*;
 use serde::Deserialize;
 use std::net::SocketAddr;
+use std::process::Command;
+use std::sync::{Arc, Mutex};
 use tracing::{error, info};
 
 use crate::{
@@ -21,6 +24,28 @@ const HTML_DIR: &str = "src/tmp_light_api";
 pub struct WebState {
     controller: ZigbeeController,
     password: String,
+    logs: Arc<Mutex<Vec<(DateTime<Utc>, String)>>>,
+}
+
+impl WebState {
+    pub fn log(&self, message: String) {
+        if let Ok(mut logs) = self.logs.lock() {
+            logs.push((Utc::now(), message));
+
+            // Keep only the last 20 logs
+            if logs.len() > 20 {
+                let excess = logs.len() - 20;
+                logs.drain(0..excess);
+            }
+        }
+    }
+
+    pub fn get_logs(&self) -> Vec<(DateTime<Utc>, String)> {
+        self.logs
+            .lock()
+            .map(|logs| logs.clone())
+            .unwrap_or_default()
+    }
 }
 
 #[derive(Debug, Deserialize)]
@@ -41,13 +66,23 @@ pub async fn start_server(controller: ZigbeeController) -> Result<(), AppError> 
     let state = WebState {
         controller,
         password,
+        logs: Arc::new(Mutex::new(Vec::new())),
     };
+
+    /*
+    // Start ngrok in a separate task
+    spawn(async {
+        start_ngrok().await;
+    });
+    */
 
     // Build our application with routes
     let app = Router::new()
         .route("/", get(login_page))
         .route("/login/{password}", post(handle_login))
         .route("/control/{password}", get(control_page))
+        .route("/logs/{password}", get(logs_page))
+        .route("/api/logs/{password}", get(get_logs_api))
         .route("/set-light/{password}/{action}", post(set_light))
         .route("/style.css", get(get_css))
         .route("/script.js", get(get_js))
@@ -133,6 +168,7 @@ async fn handle_login(
     info!("Login attempt");
     if password != state.password {
         error!("Incorrect password");
+        state.log("Login failed: Incorrect password".to_string());
         return (StatusCode::UNAUTHORIZED, "Nope");
     }
 
@@ -147,6 +183,7 @@ async fn control_page(
     info!("Serving control page");
     if password != state.password {
         error!("Incorrect password");
+        state.log("Control page access failed: Incorrect password".to_string());
         return (StatusCode::UNAUTHORIZED, "Nope").into_response();
     }
 
@@ -154,10 +191,61 @@ async fn control_page(
         .await
         .unwrap_or_else(|e| {
             error!("Failed to load control.html: {}", e);
+            state.log(format!("Failed to load control.html: {}", e));
             "Nope".to_string()
         });
 
     Html(html).into_response()
+}
+
+async fn logs_page(
+    State(state): State<WebState>,
+    Path(password): Path<String>,
+) -> impl IntoResponse {
+    info!("Serving logs page");
+    if password != state.password {
+        error!("Incorrect password");
+        state.log("Logs page access failed: Incorrect password".to_string());
+        return (StatusCode::UNAUTHORIZED, "Nope").into_response();
+    }
+
+    let html = tokio::fs::read_to_string(format!("{}/logs.html", HTML_DIR))
+        .await
+        .unwrap_or_else(|e| {
+            error!("Failed to load logs.html: {}", e);
+            state.log(format!("Failed to load logs.html: {}", e));
+            "Nope".to_string()
+        });
+
+    Html(html).into_response()
+}
+
+async fn get_logs_api(
+    State(state): State<WebState>,
+    Path(password): Path<String>,
+) -> impl IntoResponse {
+    if password != state.password {
+        error!("Incorrect password");
+        state.log("Logs API access failed: Incorrect password".to_string());
+        return (
+            StatusCode::UNAUTHORIZED,
+            Json(Vec::<(String, String)>::new()),
+        )
+            .into_response();
+    }
+
+    let logs = state.get_logs();
+    let log_entries: Vec<(String, String)> = logs
+        .into_iter()
+        .map(|(timestamp, message)| {
+            (
+                timestamp.format("%Y-%m-%d %H:%M:%S UTC").to_string(),
+                message,
+            )
+        })
+        .collect();
+
+    Json(log_entries).into_response()
 }
 
 async fn set_light(
@@ -166,11 +254,12 @@ async fn set_light(
 ) -> impl IntoResponse {
     if password != state.password {
         error!("Incorrect password");
+        state.log("Set light failed: Incorrect password".to_string());
         return (StatusCode::UNAUTHORIZED, "Nope");
     }
 
     info!("Received light control request: {:?}", action);
-    let controller = state.controller;
+    let controller = state.controller.clone();
 
     let result = match action {
         LightAction::AllOff => controller.turn_all_off().await,
@@ -186,6 +275,7 @@ async fn set_light(
 
     if let Err(e) = result {
         error!("ZigbeeController action failed: {}", e);
+        state.log(format!("ZigbeeController action failed: {}", e));
         return (StatusCode::OK, "Controller action failed");
     }
 

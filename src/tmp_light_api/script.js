@@ -56,6 +56,78 @@ function addLightListener(id, action) {
   })
 }
 
+// Handle logs link click
+function addLogsLinkListener() {
+  const logsLink = document.getElementById("logs-link");
+  if (!logsLink)
+    return;
+
+  logsLink.addEventListener("click", function (e) {
+    e.preventDefault();
+    const password = localStorage.getItem("password");
+    if (!password) {
+      window.location.href = "/";
+      return;
+    }
+    window.location.href = `/logs/${password}`;
+  });
+}
+
+// Handle back to control button
+function addBackToControlListener() {
+  const backButton = document.getElementById("back-to-control");
+  if (!backButton)
+    return;
+
+  backButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    const password = localStorage.getItem("password");
+    if (!password) {
+      window.location.href = "/";
+      return;
+    }
+    window.location.href = `/control/${password}`;
+  });
+}
+
+// Load and display logs
+async function loadLogs() {
+  const logsList = document.getElementById("logs-list");
+  if (!logsList)
+    return;
+
+  const password = localStorage.getItem("password");
+  if (!password) {
+    window.location.href = "/";
+    return;
+  }
+
+  try {
+    const response = await fetch(`/api/logs/${password}`);
+    if (!response.ok) {
+      logsList.innerHTML = '<div class="empty-logs">Failed to load logs</div>';
+      return;
+    }
+
+    const logs = await response.json();
+    
+    if (logs.length === 0) {
+      logsList.innerHTML = '<div class="empty-logs">No logs available</div>';
+      return;
+    }
+
+    // Display logs in reverse order (newest first)
+    logsList.innerHTML = logs.reverse().map(([timestamp, message]) => `
+      <div class="log-entry">
+        <div class="log-timestamp">${timestamp}</div>
+        <div class="log-message">${message}</div>
+      </div>
+    `).join('');
+  } catch (error) {
+    logsList.innerHTML = '<div class="empty-logs">Error loading logs: ' + error.message + '</div>';
+  }
+}
+
 // Set all handlers
 function addListeners() {
   addLoginListener();
@@ -65,4 +137,8 @@ function addListeners() {
   addLightListener("movie", "MovieMode");
   addLightListener("party", "PartyMode");
   addLightListener("night", "NightMode");
+
+  addLogsLinkListener();
+  addBackToControlListener();
+  loadLogs();
 }
