@@ -860,3 +860,5 @@
 1768460616: Client son-of-anton closed its connection.
 1768460617: New connection from 192.168.147.1:34848 on port 1883.
 1768460617: New client connected from 192.168.147.1:34848 as son-of-anton (p2, c1, k5).
+1768461528: Client son-of-anton closed its connection.
+1768462414: Saving in-memory database to /mosquitto/data//mosquitto.db.
