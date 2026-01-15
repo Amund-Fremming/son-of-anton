@@ -830,3 +830,23 @@
 1768407593: New connection from 192.168.147.1:58002 on port 1883.
 1768407593: New client connected from 192.168.147.1:58002 as son-of-anton (p2, c1, k5).
 1768407680: Client son-of-anton closed its connection.
+1768417012: New connection from 192.168.147.1:54490 on port 1883.
+1768417012: New client connected from 192.168.147.1:54490 as son-of-anton (p2, c1, k5).
+1768417247: Client son-of-anton closed its connection.
+1768417511: New connection from 192.168.147.1:51762 on port 1883.
+1768417511: New client connected from 192.168.147.1:51762 as son-of-anton (p2, c1, k5).
+1768417511: Client son-of-anton closed its connection.
+1768417554: New connection from 192.168.147.1:42100 on port 1883.
+1768417554: New client connected from 192.168.147.1:42100 as son-of-anton (p2, c1, k5).
+1768417554: Client son-of-anton closed its connection.
+1768417570: New connection from 192.168.147.1:44736 on port 1883.
+1768417570: New client connected from 192.168.147.1:44736 as son-of-anton (p2, c1, k5).
+1768417570: Client son-of-anton closed its connection.
+1768417608: New connection from 192.168.147.1:48210 on port 1883.
+1768417608: New client connected from 192.168.147.1:48210 as son-of-anton (p2, c1, k5).
+1768417634: New connection from 192.168.147.1:37434 on port 1883.
+1768417634: New client connected from 192.168.147.1:37434 as mqttjs_6add3eac (p2, c1, k60).
+1768417834: Client mqttjs_6add3eac disconnected.
+1768421815: Client son-of-anton closed its connection.
+1768421825: mosquitto version 2.0.22 terminating
+1768421825: Saving in-memory database to /mosquitto/data//mosquitto.db.

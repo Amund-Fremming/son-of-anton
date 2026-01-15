@@ -16,4 +16,7 @@ pub enum AppError {
 
     #[error("Standard library error: {0}")]
     Std(#[from] std::io::Error),
+
+    #[error("Internal error: {0}")]
+    Internal(String),
 }
