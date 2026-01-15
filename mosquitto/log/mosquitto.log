@@ -850,3 +850,13 @@
 1768421815: Client son-of-anton closed its connection.
 1768421825: mosquitto version 2.0.22 terminating
 1768421825: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768460613: mosquitto version 2.0.22 starting
+1768460613: Config loaded from /mosquitto/config/mosquitto.conf.
+1768460613: Opening ipv4 listen socket on port 1883.
+1768460613: Opening ipv6 listen socket on port 1883.
+1768460613: mosquitto version 2.0.22 running
+1768460614: New connection from 192.168.147.1:53446 on port 1883.
+1768460614: New client connected from 192.168.147.1:53446 as son-of-anton (p2, c1, k5).
+1768460616: Client son-of-anton closed its connection.
+1768460617: New connection from 192.168.147.1:34848 on port 1883.
+1768460617: New client connected from 192.168.147.1:34848 as son-of-anton (p2, c1, k5).

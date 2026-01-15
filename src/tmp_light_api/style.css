@@ -103,6 +103,10 @@ input[type="password"]:focus {
     }
 }
 
+a {
+    text-decoration: none;
+}
+
 .btn-light {
     color: white;
     aspect-ratio: 1;
@@ -114,27 +118,27 @@ input[type="password"]:focus {
 }
 
 .btn-light:nth-child(1) {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #1a237e 0%, #4a148c 50%, #880e4f 100%);
 }
 
 .btn-light:nth-child(2) {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    background: linear-gradient(135deg, #18729e 0%, #540022 100%);
 }
 
 .btn-light:nth-child(3) {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    background: linear-gradient(135deg, #1b978f 0%, #07188b 100%);
 }
 
 .btn-light:nth-child(4) {
-    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    background: linear-gradient(135deg, #692047 0%, #770303 100%);
 }
 
 .btn-light:nth-child(5) {
-    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    background: linear-gradient(135deg, #b71c1c 0%, #c849d3 100%);
 }
 
 .btn-light:nth-child(6) {
-    background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+    background: linear-gradient(135deg, #311b92 0%, #512da8 50%, #673ab7 100%);
 }
 
 .btn-light:hover {
@@ -165,28 +169,6 @@ input[type="password"]:focus {
 .status-message.error {
     background: #4a2d2d;
     color: #db7f7f;
-}
-
-.logs-link-box {
-    display: block;
-    margin-top: 20px;
-    padding: 20px;
-    text-align: center;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
-    border: 2px solid #3a3a3a;
-    border-radius: 12px;
-    color: #e0e0e0;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 18px;
-    transition: all 0.3s;
-}
-
-.logs-link-box:hover {
-    background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 50%, #2a2a2a 100%);
-    border-color: #5a5a5a;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .logs-container {
