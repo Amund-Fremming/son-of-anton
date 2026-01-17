@@ -13,6 +13,21 @@ services:
       - ./mosquitto/data:/mosquitto/data
       - ./mosquitto/log:/mosquitto/log
 
+  zigbee2mqtt:
+    image: koenkk/zigbee2mqtt
+    container_name: zigbee2mqtt
+    restart: unless-stopped
+    volumes:
+      - ./zigbee2mqtt/data:/app/data
+    ports:
+      - "8080:8080"
+    devices:
+      - /dev/serial/by-id/usb-NabuCasa_SkyConnect_123456-if00:/dev/ttyACM0
+    environment:
+      - TZ=Europe/Oslo
+    depends_on:
+      - mosquitto
+
 networks:
   zigbee:
     driver: bridge

@@ -66,6 +66,7 @@ pub enum LightState {
 }
 
 /// Range: 250-454
+#[allow(dead_code)]
 #[repr(u16)]
 #[derive(Debug, Serialize_repr)]
 pub enum ColorTemp {
@@ -75,6 +76,7 @@ pub enum ColorTemp {
 }
 
 /// Range: 0-254
+#[allow(dead_code)]
 #[repr(u8)]
 #[derive(Debug, Serialize_repr)]
 pub enum Brightness {
