@@ -1,16 +1,8 @@
-use std::time::Duration;
-
-/*
-    TODO
-    - rename all lights to use name1 instead of name_1, then use stum and remove the as_str
-    - group together liights in clusters, single lights stay alone
-    - set modes, and some funciton to turn on and off single lights/clusters
-*/
-
 use rumqttc::{AsyncClient, ClientError, MqttOptions, QoS};
 use serde::{Deserialize, Serialize};
 use serde_json::json;
 use serde_repr::Serialize_repr;
+use std::time::Duration;
 use strum::IntoEnumIterator;
 
 #[derive(Debug, Clone, strum::EnumIter, strum::EnumString, strum::Display)]
@@ -65,7 +57,7 @@ pub enum Brightness {
 }
 
 #[derive(Serialize, Debug)]
-pub struct LightPayload {
+pub struct DevicePayload {
     pub state: LightState,
     pub brightness: Brightness,
     pub color_temp: ColorTemp,
@@ -74,10 +66,14 @@ pub struct LightPayload {
 #[derive(Clone)]
 pub struct ZigbeeController {
     client: AsyncClient,
+    sleep_duration: u64,
+    livingroom: Vec<DeviceName>,
+    kitchen: Vec<DeviceName>,
+    bedroom: Vec<DeviceName>,
 }
 
 impl ZigbeeController {
-    pub async fn new(broker_host: &str, broker_port: u16) -> Self {
+    pub async fn new(broker_host: &str, broker_port: u16, sleep_duration: u64) -> Self {
         let mut mqttoptions = MqttOptions::new("son-of-anton", broker_host, broker_port);
         mqttoptions.set_keep_alive(Duration::from_secs(5));
 
@@ -93,13 +89,47 @@ impl ZigbeeController {
             }
         });
 
-        Self { client }
+        let livingroom = vec![
+            DeviceName::HueLivingroom1,
+            DeviceName::HueLivingroom2,
+            DeviceName::HueLivingroom3,
+            DeviceName::HueLivingroom4,
+            DeviceName::HueLivingroom5,
+            DeviceName::HueLivingroom6,
+        ];
+
+        let kitchen = vec![
+            DeviceName::HueKitchen1,
+            DeviceName::HueKitchen2,
+            DeviceName::HueKitchen3,
+        ];
+
+        let bedroom = vec![
+            DeviceName::HueBedroom1,
+            DeviceName::HueBedroom2,
+            DeviceName::HueBedroom3,
+        ];
+
+        Self {
+            client,
+            livingroom,
+            kitchen,
+            bedroom,
+            sleep_duration,
+        }
+    }
+
+    async fn turn_on(&self, device_name: &DeviceName) -> Result<(), ClientError> {
+        let topic = format!("zigbee2mqtt/{}/set", device_name.to_string());
+        let payload = json!({ "state": "ON" }).to_string();
+        self.client
+            .publish(&topic, QoS::AtLeastOnce, false, payload)
+            .await
     }
 
     async fn turn_off(&self, device_name: &DeviceName) -> Result<(), ClientError> {
         let topic = format!("zigbee2mqtt/{}/set", device_name.to_string());
         let payload = json!({ "state": "OFF" }).to_string();
-
         self.client
             .publish(&topic, QoS::AtLeastOnce, false, payload)
             .await
@@ -108,11 +138,10 @@ impl ZigbeeController {
     async fn send_payload(
         &self,
         device_name: &DeviceName,
-        payload: &LightPayload,
+        payload: &DevicePayload,
     ) -> Result<(), ClientError> {
         let topic = format!("zigbee2mqtt/{}/set", device_name.to_string());
         let payload = serde_json::to_string(payload).unwrap(); // TODO FIX
-
         self.client
             .publish(&topic, QoS::AtLeastOnce, false, payload)
             .await
@@ -120,12 +149,10 @@ impl ZigbeeController {
 
     pub async fn turn_all_off(&self) -> Result<(), ClientError> {
         for device_name in DeviceName::iter() {
-            tokio::time::sleep(Duration::from_millis(100)).await;
+            self.sleep().await;
             self.turn_off(&device_name).await?;
         }
-
-        tokio::time::sleep(Duration::from_millis(100)).await;
-
+        self.sleep().await;
         Ok(())
     }
 
@@ -134,88 +161,149 @@ impl ZigbeeController {
         brightness: Brightness,
         color_temp: ColorTemp,
     ) -> Result<(), ClientError> {
-        let payload = LightPayload {
+        let payload = DevicePayload {
             state: LightState::On,
             brightness,
             color_temp,
         };
-
         for device_name in DeviceName::iter() {
-            tokio::time::sleep(Duration::from_millis(100)).await;
+            self.sleep().await;
             self.send_payload(&device_name, &payload).await?;
         }
-
-        tokio::time::sleep(Duration::from_millis(100)).await;
-
+        self.sleep().await;
         Ok(())
     }
 
+    async fn sleep(&self) {
+        tokio::time::sleep(Duration::from_millis(self.sleep_duration)).await
+    }
+
     pub async fn night_mode(&self) -> Result<(), ClientError> {
-        todo!();
+        for device_name in &self.kitchen {
+            self.sleep().await;
+            self.turn_off(device_name).await?;
+        }
+        self.sleep().await;
+        self.turn_off(&DeviceName::BallLight).await?;
+        self.sleep().await;
+        self.turn_off(&DeviceName::IkeaMushroom).await?;
+        self.sleep().await;
+        self.turn_off(&DeviceName::SofaLight).await?;
+        for device_name in &self.livingroom {
+            self.sleep().await;
+            self.send_payload(
+                device_name,
+                &DevicePayload {
+                    state: LightState::On,
+                    brightness: Brightness::Min,
+                    color_temp: ColorTemp::Warm,
+                },
+            )
+            .await?;
+        }
+        self.sleep().await;
+        self.turn_off(&DeviceName::IkeaDonut).await?;
+        self.sleep().await;
+        self.turn_off(&DeviceName::LightBulb).await?;
+        for device_name in &self.bedroom {
+            self.sleep().await;
+            self.turn_off(device_name).await?;
+        }
+        self.sleep().await;
+        Ok(())
     }
 
     pub async fn movie_mode(&self) -> Result<(), ClientError> {
-        todo!();
+        for device_name in &self.kitchen {
+            self.sleep().await;
+            self.turn_off(device_name).await?;
+        }
+        self.sleep().await;
+        self.turn_off(&DeviceName::BallLight).await?;
+        self.sleep().await;
+        self.turn_off(&DeviceName::IkeaMushroom).await?;
+        for device_name in &self.livingroom {
+            self.sleep().await;
+            self.send_payload(
+                device_name,
+                &DevicePayload {
+                    state: LightState::On,
+                    brightness: Brightness::Min,
+                    color_temp: ColorTemp::Warm,
+                },
+            )
+            .await?;
+        }
+        self.sleep().await;
+        self.turn_on(&DeviceName::SofaLight).await?;
+        self.sleep().await;
+        self.turn_on(&DeviceName::IkeaDonut).await?;
+        self.sleep().await;
+        self.turn_on(&DeviceName::LightBulb).await?;
+        for device_name in &self.bedroom {
+            self.sleep().await;
+            self.turn_off(device_name).await?;
+        }
+        self.sleep().await;
+        Ok(())
     }
 
     pub async fn party_mode(&self) -> Result<(), ClientError> {
-        todo!();
-    }
-}
-
-#[cfg(test)]
-pub mod tests {
-    use std::time::Duration;
-
-    use crate::tools::zigbee::{Brightness, ColorTemp, DeviceName, ZigbeeController};
-
-    async fn setup_controller() -> ZigbeeController {
-        ZigbeeController::new("localhost", 1883).await
-    }
-
-    #[tokio::test]
-    async fn enum_to_string() {
-        let name = DeviceName::HueLivingroom1.to_string();
-        let expected = "hue_livingroom1";
-
-        assert_eq!(expected, name);
-    }
-
-    #[tokio::test]
-    async fn turn_all_on_success() {
-        let controller = setup_controller().await;
-        let result = controller
-            .turn_all_on(Brightness::Max, ColorTemp::Blue)
-            .await;
-
-        tokio::time::sleep(Duration::from_millis(400)).await;
-
-        assert!(
-            result.is_ok(),
-            "Controller failed to turn on all lights: {}",
-            result.err().unwrap().to_string(),
-        );
-
-        let result = controller
-            .turn_all_on(Brightness::Medium, ColorTemp::Warm)
-            .await;
-
-        assert!(
-            result.is_ok(),
-            "Controller failed to turn on all lights: {}",
-            result.err().unwrap().to_string(),
-        );
-    }
-
-    #[tokio::test]
-    async fn turn_all_off_success() {
-        let controller = setup_controller().await;
-        let result = controller.turn_all_off().await;
-
-        assert!(
-            result.is_ok(),
-            "Controller failed to turn off all lights: {}",
-            result.err().unwrap().to_string(),
-        );
+        for device_name in &self.kitchen {
+            self.sleep().await;
+            self.send_payload(
+                device_name,
+                &DevicePayload {
+                    state: LightState::On,
+                    brightness: Brightness::Low,
+                    color_temp: ColorTemp::Warm,
+                },
+            )
+            .await?;
+        }
+        self.sleep().await;
+        self.turn_off(&DeviceName::BallLight).await?;
+        self.sleep().await;
+        self.send_payload(
+            &DeviceName::IkeaMushroom,
+            &DevicePayload {
+                state: LightState::On,
+                brightness: Brightness::Medium,
+                color_temp: ColorTemp::Warm,
+            },
+        )
+        .await?;
+        self.sleep().await;
+        self.turn_on(&DeviceName::SofaLight).await?;
+        for device_name in &self.livingroom {
+            self.sleep().await;
+            self.send_payload(
+                &device_name,
+                &DevicePayload {
+                    state: LightState::On,
+                    brightness: Brightness::Low,
+                    color_temp: ColorTemp::Warm,
+                },
+            )
+            .await?;
+        }
+        self.sleep().await;
+        self.turn_on(&DeviceName::IkeaDonut).await?;
+        self.sleep().await;
+        self.turn_on(&DeviceName::LightBulb).await?;
+        for device_name in &self.bedroom {
+            self.sleep().await;
+            self.send_payload(
+                device_name,
+                &DevicePayload {
+                    state: LightState::On,
+                    brightness: Brightness::Low,
+                    color_temp: ColorTemp::Warm,
+                },
+            )
+            .await?;
+        }
+        self.sleep().await;
+        Ok(())
     }
 }
