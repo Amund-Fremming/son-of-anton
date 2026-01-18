@@ -609,3 +609,81 @@
 [2026-01-18 12:19:59] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/sofa_light', payload '{"linkquality":192,"power_on_behavior":"previous","state":"OFF","update":{"installed_version":33816580,"latest_version":33816613,"state":"available"}}'
 [2026-01-18 12:19:59] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/sofa_light', payload '{"linkquality":192,"power_on_behavior":"previous","state":"ON","update":{"installed_version":33816580,"latest_version":33816613,"state":"available"}}'
 [2026-01-18 12:19:59] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/sofa_light', payload '{"linkquality":188,"power_on_behavior":"previous","state":"ON","update":{"installed_version":33816580,"latest_version":33816613,"state":"available"}}'
+[2026-01-18 12:22:37] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/hue_kitchen1', payload '{"linkquality":176,"state":"ON","update":{"installed_version":16787202,"latest_version":16787202,"state":"idle"}}'
+[2026-01-18 12:22:48] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/hue_kitchen2', payload '{"linkquality":180,"state":"ON","update":{"installed_version":16787202,"latest_version":16787202,"state":"idle"}}'
+[2026-01-18 12:23:07] info: 	zh:ember: [STACK STATUS] Network closed.
+[2026-01-18 12:24:45] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/hue_kitchen3', payload '{"linkquality":188,"state":"ON","update":{"installed_version":16787202,"latest_version":16787202,"state":"idle"}}'
+[2026-01-18 12:28:43] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/bridge/health', payload '{"response_time":1768735723925,"os":{"load_average":[1.89,1.89,1.44],"memory_used_mb":1385.06,"memory_percent":36.4791},"process":{"uptime_sec":76215,"memory_used_mb":139.53,"memory_percent":3.6749},"mqtt":{"connected":true,"queued":0,"published":1117,"received":109},"devices":{"0x180df9fffe6dc582":{"messages":25,"messages_per_sec":0.0003,"leave_count":0,"network_address_changes":0},"0x180df9fffe11030e":{"messages":29,"messages_per_sec":0.0004,"leave_count":0,"network_address_changes":0},"0x180df9fffe380cc7":{"messages":53,"messages_per_sec":0.0007,"leave_count":0,"network_address_changes":0},"0x180df9fffe384006":{"messages":19,"messages_per_sec":0.0003,"leave_count":0,"network_address_changes":0},"0x001788010c447ec6":{"messages":36,"messages_per_sec":0.0005,"leave_count":0,"network_address_changes":0},"0x001788010c447ff2":{"messages":17,"messages_per_sec":0.0073,"leave_count":0,"network_address_changes":0},"0x001788010cf32580":{"messages":19,"messages_per_sec":0.0083,"leave_count":0,"network_address_changes":0},"0x001788010c447da7":{"messages":18,"messages_per_sec":0.0081,"leave_count":0,"network_address_changes":0},"0x001788010c4aba37":{"messages":17,"messages_per_sec":0.0078,"leave_count":0,"network_address_changes":0},"0x001788010ceebf8f":{"messages":19,"messages_per_sec":0.009,"leave_count":0,"network_address_changes":0},"0x001788010c447ed2":{"messages":18,"messages_per_sec":0.0089,"leave_count":0,"network_address_changes":0},"0x001788010c447e9f":{"messages":17,"messages_per_sec":0.0086,"leave_count":0,"network_address_changes":0},"0x001788010ceebd6a":{"messages":17,"messages_per_sec":0.0088,"leave_count":0,"network_address_changes":0},"0x90ab96fffe21ed09":{"messages":24,"messages_per_sec":0.0133,"leave_count":0,"network_address_changes":0},"0x001788010c447fbb":{"messages":18,"messages_per_sec":0.0253,"leave_count":0,"network_address_changes":0},"0x001788010cf32581":{"messages":17,"messages_per_sec":0.0256,"leave_count":0,"network_address_changes":0},"0x001788010c4abb07":{"messages":17,"messages_per_sec":0.0292,"leave_count":0,"network_address_changes":0}}}'
+[2026-01-18 12:35:14] error: 	z2m: Entity 'HueKitchen1' is unknown
+[2026-01-18 12:35:15] error: 	z2m: Entity 'HueKitchen2' is unknown
+[2026-01-18 12:35:15] error: 	z2m: Entity 'HueKitchen3' is unknown
+[2026-01-18 12:35:15] error: 	z2m: Entity 'HueBedroom1' is unknown
+[2026-01-18 12:35:15] error: 	z2m: Entity 'HueBedroom2' is unknown
+[2026-01-18 12:35:15] error: 	z2m: Entity 'HueBedroom3' is unknown
+[2026-01-18 12:35:15] error: 	z2m: Entity 'HueLivingroom1' is unknown
+[2026-01-18 12:35:15] error: 	z2m: Entity 'HueLivingroom2' is unknown
+[2026-01-18 12:35:15] error: 	z2m: Entity 'HueLivingroom3' is unknown
+[2026-01-18 12:35:15] error: 	z2m: Entity 'HueLivingroom4' is unknown
+[2026-01-18 12:35:16] error: 	z2m: Entity 'HueLivingroom5' is unknown
+[2026-01-18 12:35:16] error: 	z2m: Entity 'HueLivingroom6' is unknown
+[2026-01-18 12:35:16] error: 	z2m: Entity 'IkeaMushroom' is unknown
+[2026-01-18 12:35:16] error: 	z2m: Entity 'IkeaDonut' is unknown
+[2026-01-18 12:35:16] error: 	z2m: Entity 'LightBulb' is unknown
+[2026-01-18 12:35:16] error: 	z2m: Entity 'SofaLight' is unknown
+[2026-01-18 12:35:16] error: 	z2m: Entity 'BallLight' is unknown
+[2026-01-18 12:35:18] error: 	z2m: Entity 'HueKitchen1' is unknown
+[2026-01-18 12:35:18] error: 	z2m: Entity 'HueKitchen2' is unknown
+[2026-01-18 12:35:18] error: 	z2m: Entity 'HueKitchen3' is unknown
+[2026-01-18 12:35:18] error: 	z2m: Entity 'HueBedroom1' is unknown
+[2026-01-18 12:35:18] error: 	z2m: Entity 'HueBedroom2' is unknown
+[2026-01-18 12:35:18] error: 	z2m: Entity 'HueBedroom3' is unknown
+[2026-01-18 12:35:18] error: 	z2m: Entity 'HueLivingroom1' is unknown
+[2026-01-18 12:35:19] error: 	z2m: Entity 'HueLivingroom2' is unknown
+[2026-01-18 12:35:19] error: 	z2m: Entity 'HueLivingroom3' is unknown
+[2026-01-18 12:35:19] error: 	z2m: Entity 'HueLivingroom4' is unknown
+[2026-01-18 12:35:19] error: 	z2m: Entity 'HueLivingroom5' is unknown
+[2026-01-18 12:35:19] error: 	z2m: Entity 'HueLivingroom6' is unknown
+[2026-01-18 12:35:19] error: 	z2m: Entity 'IkeaMushroom' is unknown
+[2026-01-18 12:35:19] error: 	z2m: Entity 'IkeaDonut' is unknown
+[2026-01-18 12:35:19] error: 	z2m: Entity 'LightBulb' is unknown
+[2026-01-18 12:35:19] error: 	z2m: Entity 'SofaLight' is unknown
+[2026-01-18 12:35:19] error: 	z2m: Entity 'BallLight' is unknown
+[2026-01-18 12:35:23] error: 	z2m: Entity 'HueKitchen1' is unknown
+[2026-01-18 12:35:23] error: 	z2m: Entity 'HueKitchen2' is unknown
+[2026-01-18 12:35:23] error: 	z2m: Entity 'HueKitchen3' is unknown
+[2026-01-18 12:35:23] error: 	z2m: Entity 'HueBedroom1' is unknown
+[2026-01-18 12:35:23] error: 	z2m: Entity 'HueBedroom2' is unknown
+[2026-01-18 12:35:23] error: 	z2m: Entity 'HueBedroom3' is unknown
+[2026-01-18 12:35:23] error: 	z2m: Entity 'HueLivingroom1' is unknown
+[2026-01-18 12:35:23] error: 	z2m: Entity 'HueLivingroom2' is unknown
+[2026-01-18 12:35:23] error: 	z2m: Entity 'HueLivingroom3' is unknown
+[2026-01-18 12:35:24] error: 	z2m: Entity 'HueLivingroom4' is unknown
+[2026-01-18 12:35:24] error: 	z2m: Entity 'HueKitchen1' is unknown
+[2026-01-18 12:35:24] error: 	z2m: Entity 'HueLivingroom5' is unknown
+[2026-01-18 12:35:24] error: 	z2m: Entity 'HueKitchen2' is unknown
+[2026-01-18 12:35:24] error: 	z2m: Entity 'HueLivingroom6' is unknown
+[2026-01-18 12:35:24] error: 	z2m: Entity 'HueKitchen3' is unknown
+[2026-01-18 12:35:24] error: 	z2m: Entity 'IkeaMushroom' is unknown
+[2026-01-18 12:35:24] error: 	z2m: Entity 'HueBedroom1' is unknown
+[2026-01-18 12:35:24] error: 	z2m: Entity 'IkeaDonut' is unknown
+[2026-01-18 12:35:24] error: 	z2m: Entity 'HueBedroom2' is unknown
+[2026-01-18 12:35:24] error: 	z2m: Entity 'LightBulb' is unknown
+[2026-01-18 12:35:24] error: 	z2m: Entity 'HueBedroom3' is unknown
+[2026-01-18 12:35:24] error: 	z2m: Entity 'SofaLight' is unknown
+[2026-01-18 12:35:24] error: 	z2m: Entity 'HueLivingroom1' is unknown
+[2026-01-18 12:35:24] error: 	z2m: Entity 'BallLight' is unknown
+[2026-01-18 12:35:24] error: 	z2m: Entity 'HueLivingroom2' is unknown
+[2026-01-18 12:35:24] error: 	z2m: Entity 'HueLivingroom3' is unknown
+[2026-01-18 12:35:25] error: 	z2m: Entity 'HueLivingroom4' is unknown
+[2026-01-18 12:35:25] error: 	z2m: Entity 'HueLivingroom5' is unknown
+[2026-01-18 12:35:25] error: 	z2m: Entity 'HueLivingroom6' is unknown
+[2026-01-18 12:35:25] error: 	z2m: Entity 'IkeaMushroom' is unknown
+[2026-01-18 12:35:25] error: 	z2m: Entity 'IkeaDonut' is unknown
+[2026-01-18 12:35:25] error: 	z2m: Entity 'LightBulb' is unknown
+[2026-01-18 12:35:25] error: 	z2m: Entity 'SofaLight' is unknown
+[2026-01-18 12:35:25] error: 	z2m: Entity 'BallLight' is unknown
+[2026-01-18 12:35:38] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/sofa_light', payload '{"linkquality":192,"power_on_behavior":"previous","state":"OFF","update":{"installed_version":33816580,"latest_version":33816613,"state":"available"}}'
+[2026-01-18 12:35:38] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/sofa_light', payload '{"linkquality":192,"power_on_behavior":"previous","state":"OFF","update":{"installed_version":33816580,"latest_version":33816613,"state":"available"}}'
+[2026-01-18 12:35:39] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/sofa_light', payload '{"linkquality":192,"power_on_behavior":"previous","state":"ON","update":{"installed_version":33816580,"latest_version":33816613,"state":"available"}}'
+[2026-01-18 12:35:39] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/sofa_light', payload '{"linkquality":192,"power_on_behavior":"previous","state":"ON","update":{"installed_version":33816580,"latest_version":33816613,"state":"available"}}'
+[2026-01-18 12:38:43] info: 	z2m:mqtt: MQTT publish: topic 'zigbee2mqtt/bridge/health', payload '{"response_time":1768736323926,"os":{"load_average":[1.75,1.96,1.75],"memory_used_mb":1419.73,"memory_percent":37.3921},"process":{"uptime_sec":76815,"memory_used_mb":139.61,"memory_percent":3.6769},"mqtt":{"connected":true,"queued":0,"published":1193,"received":179},"devices":{"0x180df9fffe6dc582":{"messages":25,"messages_per_sec":0.0003,"leave_count":0,"network_address_changes":0},"0x180df9fffe11030e":{"messages":29,"messages_per_sec":0.0004,"leave_count":0,"network_address_changes":0},"0x180df9fffe380cc7":{"messages":57,"messages_per_sec":0.0007,"leave_count":0,"network_address_changes":0},"0x180df9fffe384006":{"messages":19,"messages_per_sec":0.0002,"leave_count":0,"network_address_changes":0},"0x001788010c447ec6":{"messages":36,"messages_per_sec":0.0005,"leave_count":0,"network_address_changes":0},"0x001788010c447ff2":{"messages":17,"messages_per_sec":0.0058,"leave_count":0,"network_address_changes":0},"0x001788010cf32580":{"messages":19,"messages_per_sec":0.0066,"leave_count":0,"network_address_changes":0},"0x001788010c447da7":{"messages":18,"messages_per_sec":0.0064,"leave_count":0,"network_address_changes":0},"0x001788010c4aba37":{"messages":17,"messages_per_sec":0.0061,"leave_count":0,"network_address_changes":0},"0x001788010ceebf8f":{"messages":19,"messages_per_sec":0.007,"leave_count":0,"network_address_changes":0},"0x001788010c447ed2":{"messages":18,"messages_per_sec":0.0069,"leave_count":0,"network_address_changes":0},"0x001788010c447e9f":{"messages":17,"messages_per_sec":0.0066,"leave_count":0,"network_address_changes":0},"0x001788010ceebd6a":{"messages":17,"messages_per_sec":0.0067,"leave_count":0,"network_address_changes":0},"0x90ab96fffe21ed09":{"messages":24,"messages_per_sec":0.01,"leave_count":0,"network_address_changes":0},"0x001788010c447fbb":{"messages":18,"messages_per_sec":0.0137,"leave_count":0,"network_address_changes":0},"0x001788010cf32581":{"messages":17,"messages_per_sec":0.0134,"leave_count":0,"network_address_changes":0},"0x001788010c4abb07":{"messages":17,"messages_per_sec":0.0144,"leave_count":0,"network_address_changes":0}}}'
