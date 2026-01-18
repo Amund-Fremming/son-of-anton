@@ -3,9 +3,8 @@ use serde::{Deserialize, Serialize};
 use serde_json::json;
 use serde_repr::Serialize_repr;
 use std::time::Duration;
-use strum::IntoEnumIterator;
 
-#[derive(Debug, Clone, strum::EnumIter, strum::EnumString, strum::Display)]
+#[derive(Debug, Clone, strum::Display)]
 #[strum(serialize_all = "snake_case")]
 pub enum DeviceName {
     HueKitchen1,
@@ -148,11 +147,28 @@ impl ZigbeeController {
     }
 
     pub async fn turn_all_off(&self) -> Result<(), ClientError> {
-        for device_name in DeviceName::iter() {
+        for device_name in &self.kitchen {
             self.sleep().await;
-            self.turn_off(&device_name).await?;
+            self.turn_off(device_name).await?;
         }
         self.sleep().await;
+        self.turn_off(&DeviceName::BallLight).await?;
+        self.sleep().await;
+        self.turn_off(&DeviceName::IkeaMushroom).await?;
+        self.sleep().await;
+        self.turn_off(&DeviceName::SofaLight).await?;
+        for device_name in &self.livingroom {
+            self.sleep().await;
+            self.turn_off(device_name).await?;
+        }
+        self.sleep().await;
+        self.turn_off(&DeviceName::IkeaDonut).await?;
+        self.sleep().await;
+        self.turn_off(&DeviceName::LightBulb).await?;
+        for device_name in &self.bedroom {
+            self.sleep().await;
+            self.turn_off(device_name).await?;
+        }
         Ok(())
     }
 
@@ -166,11 +182,28 @@ impl ZigbeeController {
             brightness,
             color_temp,
         };
-        for device_name in DeviceName::iter() {
+        for device_name in &self.kitchen {
             self.sleep().await;
-            self.send_payload(&device_name, &payload).await?;
+            self.send_payload(device_name, &payload).await?;
         }
         self.sleep().await;
+        self.turn_on(&DeviceName::BallLight).await?;
+        self.sleep().await;
+        self.turn_on(&DeviceName::IkeaMushroom).await?;
+        self.sleep().await;
+        self.turn_on(&DeviceName::SofaLight).await?;
+        for device_name in &self.livingroom {
+            self.sleep().await;
+            self.send_payload(device_name, &payload).await?;
+        }
+        self.sleep().await;
+        self.turn_on(&DeviceName::IkeaDonut).await?;
+        self.sleep().await;
+        self.turn_on(&DeviceName::LightBulb).await?;
+        for device_name in &self.bedroom {
+            self.sleep().await;
+            self.send_payload(device_name, &payload).await?;
+        }
         Ok(())
     }
 
