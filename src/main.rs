@@ -41,7 +41,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let weather_client = WeatherClient::new(http_client.clone())?;
     let transit_client = TransitClient::new(http_client.clone());
     */
-    let sleep_duration: u64 = require_non_emtpy("SLEEP_DURAION").parse()?;
+    let sleep_duration: u64 = require_non_emtpy("SLEEP_DURATION").parse()?;
     let zigbee_controller = ZigbeeController::new("localhost", 1883, sleep_duration).await;
     start_server(zigbee_controller).await?;
 
