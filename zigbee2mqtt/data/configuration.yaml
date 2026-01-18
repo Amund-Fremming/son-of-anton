@@ -1,14 +1,14 @@
 version: 4
 mqtt:
   base_topic: zigbee2mqtt
-  server: mqtt://localhost:1883
+  server: mqtt://mosquitto:1883
 serial:
-  port: /dev/tty.usbmodem1CDBD45F1ED41
+  port: /dev/ttyACM0
   adapter: ember
   baudrate: 460800
   rtscts: true
 advanced:
-  log_level: debug
+  log_level: info
   channel: 11
   network_key:
     - 142
@@ -42,3 +42,32 @@ frontend:
   port: 8080
 homeassistant:
   enabled: false
+devices:
+  '0x001788010c447ec6':
+    friendly_name: hue_bedroom3
+  '0x180df9fffe11030e':
+    friendly_name: ikea_donut
+  '0x180df9fffe6dc582':
+    friendly_name: light_bulb
+  '0x180df9fffe380cc7':
+    friendly_name: sofa_light
+  '0x180df9fffe384006':
+    friendly_name: ball_light
+  '0x001788010c447ff2':
+    friendly_name: hue_bedroom2
+  '0x001788010cf32580':
+    friendly_name: hue_bedroom1
+  '0x001788010c447da7':
+    friendly_name: hue_livingroom1
+  '0x001788010c4aba37':
+    friendly_name: hue_livingroom2
+  '0x001788010ceebf8f':
+    friendly_name: hue_livingroom3
+  '0x001788010c447ed2':
+    friendly_name: hue_livingroom4
+  '0x001788010c447e9f':
+    friendly_name: hue_livingroom5
+  '0x001788010ceebd6a':
+    friendly_name: hue_livingroom6
+  '0x90ab96fffe21ed09':
+    friendly_name: '0x90ab96fffe21ed09'

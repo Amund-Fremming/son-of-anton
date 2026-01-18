@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   mosquitto:
     image: eclipse-mosquitto:latest
@@ -12,6 +10,8 @@ services:
       - ./mosquitto/config:/mosquitto/config
       - ./mosquitto/data:/mosquitto/data
       - ./mosquitto/log:/mosquitto/log
+    networks:
+      - zigbee
 
   zigbee2mqtt:
     image: koenkk/zigbee2mqtt
@@ -22,12 +22,15 @@ services:
     ports:
       - "8080:8080"
     devices:
-      - /dev/serial/by-id/usb-NabuCasa_SkyConnect_123456-if00:/dev/ttyACM0
+      - /dev/serial/by-id/usb-Nabu_Casa_ZBT-2_1CDBD45F1ED4-if00:/dev/ttyACM0
     environment:
       - TZ=Europe/Oslo
     depends_on:
       - mosquitto
+    networks:
+      - zigbee
 
 networks:
   zigbee:
     driver: bridge
+
