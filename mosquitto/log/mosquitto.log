@@ -1024,3 +1024,17 @@
 1768736036: New connection from 172.19.0.1:43122 on port 1883.
 1768736036: New client connected from 172.19.0.1:43122 as son-of-anton (p2, c1, k5).
 1768736162: Client son-of-anton closed its connection.
+1768736950: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768737016: New connection from 172.19.0.1:51876 on port 1883.
+1768737016: New client connected from 172.19.0.1:51876 as son-of-anton (p2, c1, k5).
+1768737253: Client son-of-anton closed its connection.
+1768737509: New connection from 172.19.0.1:41778 on port 1883.
+1768737509: New client connected from 172.19.0.1:41778 as son-of-anton (p2, c1, k5).
+1768737615: Client son-of-anton closed its connection.
+1768738751: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768740552: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768742353: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768744154: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768745955: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768747756: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1768749557: Saving in-memory database to /mosquitto/data//mosquitto.db.
