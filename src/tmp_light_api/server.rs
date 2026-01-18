@@ -6,7 +6,6 @@ use axum::{
     routing::{get, post},
 };
 use chrono::{DateTime, Utc};
-use ngrok::prelude::*;
 use serde::Deserialize;
 use std::net::SocketAddr;
 use std::sync::{Arc, Mutex};
@@ -80,63 +79,14 @@ pub async fn start_server(controller: ZigbeeController) -> Result<(), AppError> 
         .route("/script.js", get(get_js))
         .with_state(state);
 
-    // Check if ngrok domain is configured
-    let ngrok_domain = std::env::var("NGROK_DOMAIN").ok();
+    // Run local server
+    let addr = SocketAddr::from(([0, 0, 0, 0], 3000));
+    info!("Server running on http://{}", addr);
 
-    if let Some(mut domain) = ngrok_domain {
-        // Strip https:// or http:// if present
-        domain = domain.replace("https://", "").replace("http://", "");
-
-        info!("Setting up ngrok tunnel with domain: {}", domain);
-
-        // Verify NGROK_AUTHTOKEN is set
-        let auth_token = std::env::var("NGROK_AUTHTOKEN")
-            .map_err(|_| AppError::Internal("NGROK_AUTHTOKEN environment variable not set. Get your token from https://dashboard.ngrok.com/get-started/your-authtoken".to_string()))?;
-
-        if auth_token.is_empty() || auth_token == "FILLIN" {
-            return Err(AppError::Internal("NGROK_AUTHTOKEN is not configured. Please set it to your actual ngrok auth token from https://dashboard.ngrok.com/get-started/your-authtoken".to_string()));
-        }
-
-        // Start local server first
-        let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
-        let listener = tokio::net::TcpListener::bind(addr)
-            .await
-            .map_err(|e| AppError::Internal(format!("Failed to bind local server: {}", e)))?;
-
-        info!("Local server bound to {}", addr);
-
-        // Create ngrok session and tunnel
-        let session = ngrok::Session::builder()
-            .authtoken_from_env()
-            .connect()
-            .await
-            .map_err(|e| AppError::Internal(format!("Failed to create ngrok session: {}. Make sure NGROK_AUTHTOKEN is set correctly.", e)))?;
-
-        // Start tunnel that forwards to local address
-        let _tunnel = session
-            .http_endpoint()
-            .domain(&domain)
-            .listen_and_forward(format!("http://127.0.0.1:3000").parse().unwrap())
-            .await
-            .map_err(|e| AppError::Internal(format!("Failed to create ngrok tunnel: {}", e)))?;
-
-        info!("Ngrok tunnel established at: https://{}", domain);
-
-        // Run the local server
-        axum::serve(listener, app)
-            .await
-            .map_err(|e| AppError::Internal(format!("Server error: {}", e)))?;
-    } else {
-        // Run without ngrok - local only
-        info!("No ngrok domain specified, running locally only");
-        let addr = SocketAddr::from(([0, 0, 0, 0], 3000));
-        info!("Server running on http://{}", addr);
-
-        let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
-        axum::serve(listener, app)
-            .await
-            .map_err(|e| AppError::Internal(format!("Server error: {}", e)))?;
-    }
+    let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
+    axum::serve(listener, app)
+        .await
+        .map_err(|e| AppError::Internal(format!("Server error: {}", e)))?;
 
     Ok(())
 }

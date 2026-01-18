@@ -14,6 +14,7 @@ use serde_repr::Serialize_repr;
 use strum::IntoEnumIterator;
 
 #[derive(Debug, Clone, strum::EnumIter, strum::EnumString, strum::Display)]
+#[strum(serialize_all = "snake_case")]
 pub enum DeviceName {
     HueKitchen1,
     HueKitchen2,
@@ -166,10 +167,18 @@ impl ZigbeeController {
 pub mod tests {
     use std::time::Duration;
 
-    use crate::tools::zigbee::{Brightness, ColorTemp, ZigbeeController};
+    use crate::tools::zigbee::{Brightness, ColorTemp, DeviceName, ZigbeeController};
 
     async fn setup_controller() -> ZigbeeController {
         ZigbeeController::new("localhost", 1883).await
+    }
+
+    #[tokio::test]
+    async fn enum_to_string() {
+        let name = DeviceName::HueLivingroom1.to_string();
+        let expected = "hue_livingroom1";
+
+        assert_eq!(expected, name);
     }
 
     #[tokio::test]
