@@ -79,15 +79,49 @@
         }
     },
     "0x001788010ceebf8f": {
-        "state": "ON"
+        "state": "ON",
+        "update": {
+            "state": "idle",
+            "installed_version": 16787202,
+            "latest_version": 16787202
+        }
     },
     "0x001788010c447ed2": {
-        "state": "ON"
+        "state": "ON",
+        "update": {
+            "state": "idle",
+            "installed_version": 16787202,
+            "latest_version": 16787202
+        }
     },
     "0x001788010c447e9f": {
-        "state": "ON"
+        "state": "ON",
+        "update": {
+            "state": "idle",
+            "installed_version": 16787202,
+            "latest_version": 16787202
+        }
     },
     "0x001788010ceebd6a": {
-        "state": "ON"
+        "state": "ON",
+        "update": {
+            "state": "idle",
+            "installed_version": 16787202,
+            "latest_version": 16787202
+        }
+    },
+    "0x90ab96fffe21ed09": {
+        "state": "ON",
+        "brightness": 184,
+        "color_mode": "xy",
+        "color": {
+            "x": 0.5578274813887534,
+            "y": 0.43879547768310834
+        },
+        "update": {
+            "state": "available",
+            "installed_version": 16777272,
+            "latest_version": 16777284
+        }
     }
 }
