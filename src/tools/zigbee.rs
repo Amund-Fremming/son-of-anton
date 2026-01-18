@@ -49,7 +49,7 @@ pub enum ColorTemp {
 #[derive(Debug, Serialize_repr)]
 pub enum Brightness {
     Min = 8,
-    Low = 64,
+    Low = 50,
     Medium = 127,
     High = 191,
     Max = 254,
