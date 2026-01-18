@@ -123,5 +123,11 @@
             "installed_version": 16777272,
             "latest_version": 16777284
         }
+    },
+    "0x001788010c447fbb": {
+        "state": "ON"
+    },
+    "0x001788010cf32581": {
+        "state": "ON"
     }
 }

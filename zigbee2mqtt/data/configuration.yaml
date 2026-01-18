@@ -70,4 +70,10 @@ devices:
   '0x001788010ceebd6a':
     friendly_name: hue_livingroom6
   '0x90ab96fffe21ed09':
-    friendly_name: '0x90ab96fffe21ed09'
+    friendly_name: ikea_mushroom
+  '0x001788010c447fbb':
+    friendly_name: hue_kitchen1
+  '0x001788010cf32581':
+    friendly_name: hue_kitchen2
+  '0x001788010c4abb07':
+    friendly_name: hue_kitchen3
