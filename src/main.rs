@@ -7,6 +7,7 @@ use tracing_subscriber::{EnvFilter, layer::SubscriberExt, util::SubscriberInitEx
 use crate::{
     tmp_light_api::server::start_server,
     tools::{transit::TransitClient, weather::WeatherClient, zigbee::ZigbeeController},
+    util::require_non_emtpy,
 };
 
 mod app_error;
@@ -40,7 +41,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let weather_client = WeatherClient::new(http_client.clone())?;
     let transit_client = TransitClient::new(http_client.clone());
     */
-    let zigbee_controller = ZigbeeController::new("localhost", 1883).await;
+    let sleep_duration: u64 = require_non_emtpy("SLEEP_DURAION").parse()?;
+    let zigbee_controller = ZigbeeController::new("localhost", 1883, sleep_duration).await;
     start_server(zigbee_controller).await?;
 
     Ok(())
