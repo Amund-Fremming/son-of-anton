@@ -13,7 +13,7 @@ use serde_json::json;
 use serde_repr::Serialize_repr;
 use strum::IntoEnumIterator;
 
-#[derive(Debug, Clone, strum::EnumIter)]
+#[derive(Debug, Clone, strum::EnumIter, strum::EnumString, strum::Display)]
 pub enum DeviceName {
     HueKitchen1,
     HueKitchen2,
@@ -32,30 +32,6 @@ pub enum DeviceName {
     LightBulb,
     SofaLight,
     BallLight,
-}
-
-impl DeviceName {
-    pub fn as_str(&self) -> &'static str {
-        match self {
-            Self::HueKitchen1 => "hue_kitchen_1",
-            Self::HueKitchen2 => "hue_kitchen_2",
-            Self::HueKitchen3 => "hue_kitchen_3",
-            Self::HueBedroom1 => "hue_bedroom_1",
-            Self::HueBedroom2 => "hue_bedroom_2",
-            Self::HueBedroom3 => "hue_bedroom_3",
-            Self::HueLivingroom1 => "hue_livingroom_1",
-            Self::HueLivingroom2 => "hue_livingroom_2",
-            Self::HueLivingroom3 => "hue_livingroom_3",
-            Self::HueLivingroom4 => "hue_livingroom_4",
-            Self::HueLivingroom5 => "hue_livingroom_5",
-            Self::HueLivingroom6 => "hue_livingroom_6",
-            Self::IkeaMushroom => "ikea_mushroom",
-            Self::IkeaDonut => "ikea_donut",
-            Self::LightBulb => "light_bulb",
-            Self::SofaLight => "sofa_light",
-            Self::BallLight => "ball_light",
-        }
-    }
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -120,7 +96,7 @@ impl ZigbeeController {
     }
 
     async fn turn_off(&self, device_name: &DeviceName) -> Result<(), ClientError> {
-        let topic = format!("zigbee2mqtt/{}/set", device_name.as_str());
+        let topic = format!("zigbee2mqtt/{}/set", device_name.to_string());
         let payload = json!({ "state": "OFF" }).to_string();
 
         self.client
@@ -133,7 +109,7 @@ impl ZigbeeController {
         device_name: &DeviceName,
         payload: &LightPayload,
     ) -> Result<(), ClientError> {
-        let topic = format!("zigbee2mqtt/{}/set", device_name.as_str());
+        let topic = format!("zigbee2mqtt/{}/set", device_name.to_string());
         let payload = serde_json::to_string(payload).unwrap(); // TODO FIX
 
         self.client

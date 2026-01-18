@@ -9,7 +9,6 @@ use chrono::{DateTime, Utc};
 use ngrok::prelude::*;
 use serde::Deserialize;
 use std::net::SocketAddr;
-use std::process::Command;
 use std::sync::{Arc, Mutex};
 use tracing::{error, info};
 
@@ -68,13 +67,6 @@ pub async fn start_server(controller: ZigbeeController) -> Result<(), AppError> 
         password,
         logs: Arc::new(Mutex::new(Vec::new())),
     };
-
-    /*
-    // Start ngrok in a separate task
-    spawn(async {
-        start_ngrok().await;
-    });
-    */
 
     // Build our application with routes
     let app = Router::new()
@@ -137,7 +129,7 @@ pub async fn start_server(controller: ZigbeeController) -> Result<(), AppError> 
     } else {
         // Run without ngrok - local only
         info!("No ngrok domain specified, running locally only");
-        let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
+        let addr = SocketAddr::from(([0, 0, 0, 0], 3000));
         info!("Server running on http://{}", addr);
 
         let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
