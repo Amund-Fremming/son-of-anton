@@ -125,9 +125,27 @@
         }
     },
     "0x001788010c447fbb": {
-        "state": "ON"
+        "state": "ON",
+        "update": {
+            "state": "idle",
+            "installed_version": 16787202,
+            "latest_version": 16787202
+        }
     },
     "0x001788010cf32581": {
-        "state": "ON"
+        "state": "ON",
+        "update": {
+            "state": "idle",
+            "installed_version": 16787202,
+            "latest_version": 16787202
+        }
+    },
+    "0x001788010c4abb07": {
+        "state": "ON",
+        "update": {
+            "state": "idle",
+            "installed_version": 16787202,
+            "latest_version": 16787202
+        }
     }
 }
