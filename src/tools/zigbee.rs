@@ -1,4 +1,4 @@
-use rumqttc::{AsyncClient, ClientError, MqttOptions, QoS};
+use rumqttc::{AsyncClient, ClientError, Event, MqttOptions, Packet, QoS};
 use serde::{Deserialize, Serialize};
 use serde_json::json;
 use serde_repr::Serialize_repr;
@@ -24,6 +24,7 @@ pub enum DeviceName {
     LightBulb,
     SofaLight,
     BallLight,
+    Controller,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -62,6 +63,11 @@ pub struct DevicePayload {
     pub color_temp: ColorTemp,
 }
 
+#[derive(Deserialize, Debug)]
+struct ControllerMessage {
+    action: Option<String>,
+}
+
 #[derive(Clone)]
 pub struct ZigbeeController {
     client: AsyncClient,
@@ -73,20 +79,12 @@ pub struct ZigbeeController {
 
 impl ZigbeeController {
     pub async fn new(broker_host: &str, broker_port: u16, sleep_duration: u64) -> Self {
+        println!("[ZigbeeController] Initializing MQTT client connecting to {}:{}", broker_host, broker_port);
+        
         let mut mqttoptions = MqttOptions::new("son-of-anton", broker_host, broker_port);
         mqttoptions.set_keep_alive(Duration::from_secs(5));
 
         let (client, mut eventloop) = AsyncClient::new(mqttoptions, 10);
-
-        // Spawn the event loop
-        tokio::spawn(async move {
-            loop {
-                if let Err(e) = eventloop.poll().await {
-                    eprintln!("MQTT Error: {:?}", e);
-                    tokio::time::sleep(Duration::from_secs(1)).await;
-                }
-            }
-        });
 
         let livingroom = vec![
             DeviceName::HueLivingroom1,
@@ -109,16 +107,102 @@ impl ZigbeeController {
             DeviceName::HueBedroom3,
         ];
 
-        Self {
-            client,
+        let controller = Self {
+            client: client.clone(),
             livingroom,
             kitchen,
             bedroom,
             sleep_duration,
+        };
+
+        // Subscribe to controller topic
+        let controller_topic = format!("zigbee2mqtt/{}", DeviceName::Controller.to_string());
+        println!("[ZigbeeController] Subscribing to controller topic: {}", controller_topic);
+        
+        if let Err(e) = client.subscribe(&controller_topic, QoS::AtLeastOnce).await {
+            eprintln!("[ZigbeeController] Failed to subscribe to controller topic: {:?}", e);
+        } else {
+            println!("[ZigbeeController] Successfully subscribed to controller");
+        }
+
+        // Spawn the event loop with message handling
+        let controller_clone = controller.clone();
+        tokio::spawn(async move {
+            println!("[ZigbeeController] Event loop started, listening for controller messages...");
+            loop {
+                match eventloop.poll().await {
+                    Ok(Event::Incoming(Packet::Publish(publish))) => {
+                        // Check if this is from the controller
+                        if publish.topic.contains(&DeviceName::Controller.to_string()) {
+                            println!("[ZigbeeController] Received message from controller");
+                            
+                            if let Ok(payload_str) = std::str::from_utf8(&publish.payload) {
+                                println!("[ZigbeeController] Payload: {}", payload_str);
+                                
+                                if let Ok(msg) = serde_json::from_str::<ControllerMessage>(payload_str) {
+                                    if let Some(action) = msg.action {
+                                        println!("[ZigbeeController] Action detected: {}", action);
+                                        controller_clone.handle_controller_action(&action).await;
+                                    }
+                                } else {
+                                    eprintln!("[ZigbeeController] Failed to parse controller message");
+                                }
+                            }
+                        }
+                    }
+                    Ok(_) => {
+                        // Other MQTT events (connections, acks, etc.)
+                    }
+                    Err(e) => {
+                        eprintln!("[ZigbeeController] MQTT Error: {:?}", e);
+                        tokio::time::sleep(Duration::from_secs(1)).await;
+                    }
+                }
+            }
+        });
+
+        println!("[ZigbeeController] Initialization complete");
+        controller
+    }
+
+    async fn handle_controller_action(&self, action: &str) {
+        println!("[ZigbeeController] Handling action: {}", action);
+        
+        let result = match action {
+            // Straight down - all off
+            "arrow_down_click" | "off" | "brightness_down_click" => {
+                println!("[ZigbeeController] Turning all lights OFF");
+                self.turn_all_off().await
+            }
+            // Straight up - all on
+            "arrow_up_click" | "on" | "brightness_up_click" => {
+                println!("[ZigbeeController] Turning all lights ON");
+                self.turn_all_on(Brightness::Medium, ColorTemp::White).await
+            }
+            // Left - movie mode
+            "arrow_left_click" | "left" => {
+                println!("[ZigbeeController] Activating MOVIE MODE");
+                self.movie_mode().await
+            }
+            // Right - party mode
+            "arrow_right_click" | "right" => {
+                println!("[ZigbeeController] Activating PARTY MODE");
+                self.party_mode().await
+            }
+            _ => {
+                println!("[ZigbeeController] Unknown action: {}", action);
+                return;
+            }
+        };
+
+        match result {
+            Ok(_) => println!("[ZigbeeController] Action completed successfully"),
+            Err(e) => eprintln!("[ZigbeeController] Action failed: {:?}", e),
         }
     }
 
     async fn turn_on(&self, device_name: &DeviceName) -> Result<(), ClientError> {
+        println!("[ZigbeeController] Turning ON: {}", device_name);
         let topic = format!("zigbee2mqtt/{}/set", device_name.to_string());
         let payload = json!({ "state": "ON" }).to_string();
         self.client
@@ -127,6 +211,7 @@ impl ZigbeeController {
     }
 
     async fn turn_off(&self, device_name: &DeviceName) -> Result<(), ClientError> {
+        println!("[ZigbeeController] Turning OFF: {}", device_name);
         let topic = format!("zigbee2mqtt/{}/set", device_name.to_string());
         let payload = json!({ "state": "OFF" }).to_string();
         self.client
@@ -139,6 +224,8 @@ impl ZigbeeController {
         device_name: &DeviceName,
         payload: &DevicePayload,
     ) -> Result<(), ClientError> {
+        println!("[ZigbeeController] Sending payload to {}: brightness={:?}, color_temp={:?}, state={:?}",
+                 device_name, payload.brightness, payload.color_temp, payload.state);
         let topic = format!("zigbee2mqtt/{}/set", device_name.to_string());
         let payload = serde_json::to_string(payload).unwrap(); // TODO FIX
         self.client
@@ -147,6 +234,7 @@ impl ZigbeeController {
     }
 
     pub async fn turn_all_off(&self) -> Result<(), ClientError> {
+        println!("[ZigbeeController] === Starting turn_all_off sequence ===");
         for device_name in &self.kitchen {
             self.sleep().await;
             self.turn_off(device_name).await?;
@@ -169,6 +257,7 @@ impl ZigbeeController {
             self.sleep().await;
             self.turn_off(device_name).await?;
         }
+        println!("[ZigbeeController] === Completed turn_all_off sequence ===");
         Ok(())
     }
 
@@ -177,6 +266,7 @@ impl ZigbeeController {
         brightness: Brightness,
         color_temp: ColorTemp,
     ) -> Result<(), ClientError> {
+        println!("[ZigbeeController] === Starting turn_all_on sequence ===");
         let payload = DevicePayload {
             state: LightState::On,
             brightness,
@@ -204,6 +294,7 @@ impl ZigbeeController {
             self.sleep().await;
             self.send_payload(device_name, &payload).await?;
         }
+        println!("[ZigbeeController] === Completed turn_all_on sequence ===");
         Ok(())
     }
 
@@ -211,7 +302,7 @@ impl ZigbeeController {
         tokio::time::sleep(Duration::from_millis(self.sleep_duration)).await
     }
 
-    pub async fn night_mode(&self) -> Result<(), ClientError> {
+    pub async fn _night_mode(&self) -> Result<(), ClientError> {
         for device_name in &self.kitchen {
             self.sleep().await;
             self.turn_off(device_name).await?;
@@ -247,6 +338,7 @@ impl ZigbeeController {
     }
 
     pub async fn movie_mode(&self) -> Result<(), ClientError> {
+        println!("[ZigbeeController] === Starting MOVIE MODE sequence ===");
         for device_name in &self.kitchen {
             self.sleep().await;
             self.turn_off(device_name).await?;
@@ -278,10 +370,12 @@ impl ZigbeeController {
             self.turn_off(device_name).await?;
         }
         self.sleep().await;
+        println!("[ZigbeeController] === Completed MOVIE MODE sequence ===");
         Ok(())
     }
 
     pub async fn party_mode(&self) -> Result<(), ClientError> {
+        println!("[ZigbeeController] === Starting PARTY MODE sequence ===");
         for device_name in &self.kitchen {
             self.sleep().await;
             self.send_payload(
@@ -337,6 +431,7 @@ impl ZigbeeController {
             .await?;
         }
         self.sleep().await;
+        println!("[ZigbeeController] === Completed PARTY MODE sequence ===");
         Ok(())
     }
 }

@@ -1,4 +1,2 @@
-pub mod chat;
-pub mod transit;
-pub mod weather;
+pub mod util;
 pub mod zigbee;
